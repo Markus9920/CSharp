@@ -8,66 +8,67 @@ namespace ShoppingCartExcercise
         public ShoppingCartProgram() { }
         public void Start()
         {
-
+            // Variables used in this class.
             bool isInt;
             bool notString;
             int parsedInt;
+
             ShoppingCart shoppingCart = new ShoppingCart();
+
             Console.WriteLine("***************************************************************************************************");
             Console.WriteLine("*                                                                                                 *");
-            Console.WriteLine("*Tervetuloa kauppaan. Täältä et todennäköisesti lähde tyytyväisenä. Noniin, aloitetaanpa ostokset.*");
+            Console.WriteLine("* Welcome to the store. You probably won't leave here satisfied. Well, let's start shopping. *");
             Console.WriteLine("*                                                                                                 *");
             Console.WriteLine("***************************************************************************************************");
-            //While looppi, jossa kysytään mitä käyttäjä haluaa lisätä ostoskoriin.
+            // While loop handles the inquiry from user.
             while (true)
             {
-                //Lisää tähän tarkastus onko avain jo sanakirjassa
-                Console.WriteLine("Mitä haluat lisätä ostoskoriin?");
-                string whatToAdd = Console.ReadLine() ?? string.Empty;//osaa odottaa nullia
+
+                Console.WriteLine("What do you want to add to the shopping cart?");
+                string whatToAdd = Console.ReadLine() ?? string.Empty; // no null warning
 
                 TrimAndLower(whatToAdd);
-                notString = int.TryParse(whatToAdd, out parsedInt); //Jos käyttäjä antaakin kokonaisluvun, eikä merkkijonoa.
+                notString = int.TryParse(whatToAdd, out parsedInt); // if user gives integer and not string
                 shoppingCart.CheckCartContent(whatToAdd);
 
                 if (string.IsNullOrEmpty(whatToAdd))
                 {
-                    Console.WriteLine("Eihän me väkisin mitään myydä!\n" +
-                    "Tulostetaan ny kuitenkin vielä ostoskorissa olevat tuotteet:");
+                    Console.WriteLine("We won't force you to buy anything!\n" +
+                    "However, let's print the items currently in the shopping cart:");
                     shoppingCart.PrintCart();
                     break;
                 }
-                if (notString) //jos notString == tosi
+                if (notString) // If notString is true
                 {
-                    Console.WriteLine("Ei me täällä mitään numeroita myydä!");
+                    Console.WriteLine("We don't sell numbers here!");
                 }
                 else
                 {
-                    Console.WriteLine($"Tuote: {whatToAdd}. Montako haluat lisätä ostoskoriin.");
+                    Console.WriteLine($"Product: {whatToAdd}. How many do you want to add to the shopping cart?");
                     string? howManyToAdd = Console.ReadLine();
 
                     isInt = int.TryParse(howManyToAdd, out parsedInt);
                     int amount = parsedInt;
-                    if (!notString && isInt)//Jos notStrin == epätosi ja isInt == tosi, voidaan jatkaa eteenpäin.
+                    if (!notString && isInt) // if notString is false and isInt is true, we can go forward
                     {
-                        if (whatToAdd.Length <= 1)//Tarkastaa käyttäjän antaman merkkijonon pituuden, jotta käyttäjä antaisi oikeasti jonkun sanan.
+                        if (whatToAdd.Length <= 1) // Check that user is actually giving a word not just one character.
                         {
-                            Console.WriteLine("Ei tää mikään onnenpyörä oo! Osta vokaalis muualta!");
+                            Console.WriteLine("This isn't a wheel of fortune! Go buy your vowels elsewhere!");
                         }
 
                     }
                     else
                     {
-                        Console.WriteLine("Torvi! Annoit epäkelpoja syötteitä!");
+                        Console.WriteLine("Fool! You gave invalid inputs!");
                     }
                     shoppingCart.AddToCart(whatToAdd, amount);
                 }
             }
             Console.WriteLine();
             shoppingCart.MoveDictToListAndPrintAndAfterThatMoveItToArrayAndPrintAgain();
-            //Tässä piti olla vielä mahdollisuus siirtää ostoskorin sisältä tekstitiedostoon, mutta ei vaan tullut vaikka yritti.
         }
 
-        //Tällekin luokalle oma siistimismetodi, niin on metodinkutsu vähän mukavamman näköinen.
+        // Trimming and lowering
         static string TrimAndLower(string text)
         {
             return text.ToLower().Trim();
