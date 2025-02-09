@@ -1,0 +1,43 @@
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.csproj.AssemblyReference.cache
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfoInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfo.cs
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.csproj.CoreCompileInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.exe
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.deps.json
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.runtimeconfig.json
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\refint\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.genruntimeconfig.cache
+C:\Users\marku\AppData\Local\tmc\vscode\omat tsydeemit\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ref\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.exe
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.deps.json
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.runtimeconfig.json
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\bin\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfoInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfo.cs
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.csproj.CoreCompileInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\refint\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ChatGPTDictionaryTehtava.genruntimeconfig.cache
+C:\Users\marku\AppData\Local\tmc\vscode\ChatGPTDictionaryTehtava\obj\Debug\net6.0\ref\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\bin\Debug\net6.0\ChatGPTDictionaryTehtava.exe
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\bin\Debug\net6.0\ChatGPTDictionaryTehtava.deps.json
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\bin\Debug\net6.0\ChatGPTDictionaryTehtava.runtimeconfig.json
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\bin\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\bin\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfoInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.AssemblyInfo.cs
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.csproj.CoreCompileInputs.cache
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\refint\ChatGPTDictionaryTehtava.dll
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.pdb
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ChatGPTDictionaryTehtava.genruntimeconfig.cache
+C:\Users\marku\AppData\Local\tmc\vscode\DictionaryExcercise\obj\Debug\net6.0\ref\ChatGPTDictionaryTehtava.dll
