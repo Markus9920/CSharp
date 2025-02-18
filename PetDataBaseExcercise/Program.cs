@@ -3,15 +3,6 @@
 namespace LemmikkiKanta;
 //dotnet add package Microsoft.Data.Sqlite
 
-/*  Tee komentorivi sovellus joka: 
--luo lemmikki tietokannan
--Lisää kantaan Omistajia (id, nimi, puhelin)
--Lisää kantaan lemmikkejä(id, nimi, laji, omistajan_id)
--Päivittää omistajan puhelinnumeron
--Etsii lemmikin nimen perusteella omistajan puhelinnumeron
-Palauta koodi (Program.cs + muut .cs tiedostot) */
-
-
 class Program
 {
     public static void Main(string[] args)
@@ -21,14 +12,12 @@ class Program
         {
             connection.Open();
 
-            //Tietikanta taulut Asiakkaat, Tuotteet, Ostokset
-
             Methods.CreateTables(connection);
+
+            //has no exception handling
 
             while (true)
             {
-                //Yksinkertainen komentorivikayttoliittymä
-
                 Console.WriteLine("Mitä haluat tehdä? (1) Lisää omistaja, (2) Lisää lemmikki, (3) Lisää lemmikki oikealle omistajalle" +
                 " (4) Päivitä omistajan puhelinnumero (5) Hae omistajan puhelinnumero (6) Lopeta (7) debugtulostus");
                 string? input = Console.ReadLine();
