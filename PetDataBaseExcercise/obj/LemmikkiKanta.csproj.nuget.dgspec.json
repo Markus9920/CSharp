@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {}
+    "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {
+    "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
+        "projectUniqueName": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
         "projectName": "LemmikkiKanta",
-        "projectPath": "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
+        "projectPath": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
         "packagesPath": "C:\\Users\\marku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\obj\\",
+        "outputPath": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PYSWTJIPaqo=",
+  "dgSpecHash": "J1Gs6yDD7tw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\marku\\AppData\\Local\\tmc\\vscode\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
+  "projectFilePath": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marku\\.nuget\\packages\\microsoft.data.sqlite\\9.0.2\\microsoft.data.sqlite.9.0.2.nupkg.sha512",
     "C:\\Users\\marku\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.2\\microsoft.data.sqlite.core.9.0.2.nupkg.sha512",
