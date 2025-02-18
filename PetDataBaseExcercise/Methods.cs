@@ -3,7 +3,9 @@ using Microsoft.Data.Sqlite;
 namespace LemmikkiKanta;
 
 public static class Methods
-{
+{   
+    //has no exception handling
+
     public static void CreateTables(SqliteConnection conn)
     {
         //Creates table for Owners

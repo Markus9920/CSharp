@@ -7,7 +7,7 @@ class Program
 {
     public static void Main(string[] args)
     {
-        //luodaan tietokantayhteys
+        //connection to database
         using (var connection = new SqliteConnection("Data Source=lemmikkikanta.db"))
         {
             connection.Open();
