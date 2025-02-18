@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {}
+    "D:\\GitHub\\CSharp\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {}
   },
   "projects": {
-    "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {
+    "D:\\GitHub\\CSharp\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
+        "projectUniqueName": "D:\\GitHub\\CSharp\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
         "projectName": "LemmikkiKanta",
-        "projectPath": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
+        "projectPath": "D:\\GitHub\\CSharp\\CSharp\\PetDataBaseExcercise\\LemmikkiKanta.csproj",
         "packagesPath": "C:\\Users\\marku\\.nuget\\packages\\",
-        "outputPath": "D:\\Unreal Projects\\WarriorLevel\\CSharp\\PetDataBaseExcercise\\obj\\",
+        "outputPath": "D:\\GitHub\\CSharp\\CSharp\\PetDataBaseExcercise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
