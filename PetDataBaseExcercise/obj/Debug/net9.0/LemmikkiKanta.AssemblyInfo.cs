@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LemmikkiKanta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66a9e48fdbc43c83b76c924a2674e612e5376ec7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fcf58b8250c3469f564ba860cdfe94f8fbbb15d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LemmikkiKanta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LemmikkiKanta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
