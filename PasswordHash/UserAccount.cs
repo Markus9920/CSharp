@@ -8,14 +8,23 @@ namespace PasswordHash;
 
 public class UserAccount
 {
- // Properties to store the username and hashed password
+    // Properties to store the username and hashed password
     public string Username { get; private set; }
     public string Password { get; private set; }
 
-    // Constants for salt size, key size, and iterations for PBKDF2
+    public string username = "";
+    public string password = "";
+
+    // Constants for salt size, key size, and iterations for PBKDF2 (Password-Based Key Derivation Function 2)
     const int saltSize = 16;  // Salt size in bytes (16 bytes is common)
-    const int keySize = 64;   // Key size in bytes for the hash (64 bytes for SHA512)
+    const int keySize = 64;   // Key size in bytes for the hash (64 bytes for SHA512) (Secure Hash Algorithm 512-bit)
     const int iterations = 350000;  // Number of iterations for PBKDF2 to increase security
+
+    //constructor without properties. Just to get use of the methods.
+    public UserAccount()
+    {
+
+    }
 
     // Constructor to create a new user account with username and password
     public UserAccount(string username, string password)
@@ -47,5 +56,39 @@ public class UserAccount
 
         // Return the hashed password as a hexadecimal string
         return Convert.ToHexString(hash);  // Return the password hash as a hex string
+    }
+    public void CreateAccout()
+    {
+        //Query for username
+        while (true)
+        {
+            Console.Write("Give username: ");
+            username = Console.ReadLine() ?? String.Empty;
+
+            if (username == String.Empty)
+            {
+                Console.WriteLine("Give valid username!");
+                continue;
+            }
+            Console.WriteLine();
+            break;
+        }
+
+        //Query for password
+        while (true)
+        {
+            Console.Write("Give password: ");
+            password = Console.ReadLine() ?? String.Empty;
+
+            if (password == String.Empty)
+            {
+                Console.WriteLine("Give valid password");
+                continue;
+            }
+            Console.WriteLine();
+            break;
+        }
+        //Creates new account
+        UserAccount userAccount = new UserAccount(username, password);
     }
 }
