@@ -12,8 +12,7 @@ public class UserAccount
     public string Username { get; private set; }
     public string Password { get; private set; }
 
-    public string username = "";
-    public string password = "";
+
 
     // Constants for salt size, key size, and iterations for PBKDF2 (Password-Based Key Derivation Function 2)
     const int saltSize = 16;  // Salt size in bytes (16 bytes is common)
@@ -23,7 +22,8 @@ public class UserAccount
     //constructor without properties. Just to get use of the methods.
     public UserAccount()
     {
-
+        Username = String.Empty;
+        Password = String.Empty;
     }
 
     // Constructor to create a new user account with username and password
@@ -59,6 +59,8 @@ public class UserAccount
     }
     public void CreateAccout()
     {
+        string username = "";
+        string password = "";
         //Query for username
         while (true)
         {
