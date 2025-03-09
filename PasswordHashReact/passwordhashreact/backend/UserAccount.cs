@@ -1,6 +1,10 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Text;
 
 
@@ -93,5 +97,6 @@ public class UserAccount
         //Creates new account
         UserAccount userAccount = new UserAccount(username, password);
     }
-    //Tähän pitää tehdä metodi, jolla tarkastetaan onko salasana oikein
+
+    //Tähän pitää tehdä metodi, jolla tarkastetaan onko salasana oikein.
 }

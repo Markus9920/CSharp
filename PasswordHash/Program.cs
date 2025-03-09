@@ -8,9 +8,8 @@ class Program
 
         userAccount.CreateAccout();
         
-
-
-        //Lisää toiminnallisuus, jolla käyttäjä ja salasana saadaan tallennettua tietokantaan.
+        //Lisää toiminnallisuus, jolla käyttäjä ja salasana saadaan tallennettua tietokantaan. Uusi luokka?
+        
 
     }
 }
