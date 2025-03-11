@@ -14,7 +14,7 @@ public static class UserDatabaseManager
 {
     private static readonly string userDataBase = "Data Source=userDatabase.db";
 
-    public static void AddUserToDataBase(string username, string password, string salt) //Add user and passwordhash to database
+    public static void AddUserToDataBase(string username, string password, string salt) //Adds user, passwordhash and salt to database
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -28,7 +28,7 @@ public static class UserDatabaseManager
             connection.Close();
         }
     }
-    public static bool CheckIfUsernameExists(string username)
+    public static bool CheckIfUsernameExists(string username) //checks if the username is already in use
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -44,7 +44,8 @@ public static class UserDatabaseManager
             return count > 0;
         }
     }
-    public static bool CheckPassword(string username, string passwordInput)
+    public static bool CheckPassword(string username, string passwordInput) 
+    //gets the password and salt based on username from database and makes comparison
     {
         using (var connection = new SqliteConnection(userDataBase))
         {

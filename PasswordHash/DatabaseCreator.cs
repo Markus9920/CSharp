@@ -16,11 +16,11 @@ public static class DatabaseCreator
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
-            Console.WriteLine("\nEstablishing SQL database connection");
+            Console.WriteLine("\nEstablishing SQL database");
             connection.Open();
             CreateTableForUsers(connection);
             connection.Close();
-            Console.WriteLine("Establishing SQL database connection completed\n");
+            Console.WriteLine("Establishing SQL database completed\n");
             PackageManager.InstallSQLPackages();
 
 
@@ -31,7 +31,6 @@ public static class DatabaseCreator
         var createUsersTableCommand = conn.CreateCommand();
         createUsersTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
         createUsersTableCommand.ExecuteNonQuery();
-
     }
     //other table creation functionality
 }
