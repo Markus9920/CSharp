@@ -1,11 +1,18 @@
 ﻿using System.Net;
-
+using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 namespace PasswordHash;
 
 class Program
 {
     static void Main(string[] args)
     {
+        PackageManager.InstallSQLPackages();
+
         UserAccount userAccount = new UserAccount();
 
 
@@ -28,6 +35,7 @@ class Program
                     userAccount.CreateAccout();
                     break;
                 case "2":
+
                     userAccount.Login();
                     break;
             }

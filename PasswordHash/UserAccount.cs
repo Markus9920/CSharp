@@ -6,8 +6,13 @@ using System.Text;
 
 //****TODO*****
 //käyttäjätilin ja salasanan lisääminen tietokantaan
-//tarkastus onko käyttäjänimi jo käytössä
-//salasanan tarkastus
+//tarkastus onko käyttäjänimi jo käytössä -ok
+//salasanan tarkastus -ok
+
+//****Nice to have -osasto*****
+//salasanan vaihtaminen
+//kirjautumisyritykset x -kertaa
+
 
 namespace PasswordHash;
 
@@ -78,6 +83,7 @@ public class UserAccount
         string username = "";
         string password = "";
         //Query for username
+        Console.WriteLine("Create user account");
         while (true)
         {
             Console.Write("Give username: ");
@@ -137,7 +143,7 @@ public class UserAccount
     {
         string username = "";
         string password = "";
-
+        Console.WriteLine("Log in to user account");
         //Query for username
         while (true)
         {
