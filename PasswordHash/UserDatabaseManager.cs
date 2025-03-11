@@ -40,6 +40,7 @@ public static class UserDatabaseManager
             checkIfUsernameExistsCommand.Parameters.AddWithValue("$username", username);
 
             count = Convert.ToInt32(checkIfUsernameExistsCommand.ExecuteScalar());
+            connection.Close();
             return count > 0;
         }
     }
