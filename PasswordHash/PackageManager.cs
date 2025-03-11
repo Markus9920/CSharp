@@ -14,11 +14,12 @@ public static class PackageManager
         string mysql = "MySql.Data";
         string postgreSQL = "Npgsql";
 
-        Console.WriteLine("Installing SQL packages this may take several minutes");
-
+        Console.WriteLine("**********Installing SQL packages needed for this program. This may take several minutes**********");
 
         Process.Start("dotnet", $"add package {sqlite}")?.WaitForExit();
         Process.Start("dotnet", $"add package {mysql}")?.WaitForExit();
         Process.Start("dotnet", $"add package {postgreSQL}")?.WaitForExit();
+
+        Console.WriteLine("\n**********Package installation complete*********\n");
     }
 }

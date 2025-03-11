@@ -5,20 +5,17 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Microsoft.Data.Sqlite;
 namespace PasswordHash;
 
 class Program
 {
     static void Main(string[] args)
     {
-        PackageManager.InstallSQLPackages();
-
-        UserAccount userAccount = new UserAccount();
-
+        UserAccount userAccount = new UserAccount(); //this must be called, because it establishes database connection and hadles the package installation
+        DatabaseCreator.InitializeDatabase(); //Method that establishes database and creates tables needed.
 
 
-
-        //Lisää toiminnallisuus, jolla käyttäjä ja salasana saadaan tallennettua tietokantaan. Uusi luokka?
         while (true)
         {
             Console.WriteLine("(1) Create account (2) Login");
@@ -35,9 +32,12 @@ class Program
                     userAccount.CreateAccout();
                     break;
                 case "2":
-
                     userAccount.Login();
                     break;
+                default:
+                Console.WriteLine("Give valid input");  
+                Console.WriteLine("(1) Create account (2) Login (3) Install SQL packages");
+                break; 
             }
         }
 

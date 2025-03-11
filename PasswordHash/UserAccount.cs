@@ -1,11 +1,15 @@
+using System.Net;
+using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.Data.Sqlite;
 using System.Text;
 
 
 //****TODO*****
-//käyttäjätilin ja salasanan lisääminen tietokantaan
+//käyttäjätilin ja salasanan lisääminen tietokantaan -ok
 //tarkastus onko käyttäjänimi jo käytössä -ok
 //salasanan tarkastus -ok
 
@@ -122,8 +126,9 @@ public class UserAccount
 
         Console.WriteLine($"Hashed password: {userAccount.Password}");
         Console.WriteLine($"Salt: {userAccount.Salt}");
-        userAccounts.Add(userAccount);
-        Console.WriteLine("Useraccount added into list.");
+        //userAccounts.Add(userAccount);
+        //Console.WriteLine("Useraccount added into list.");
+        UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
     }
     //Method to verify the password
     private bool VerifyPassword(string password)
