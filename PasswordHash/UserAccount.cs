@@ -12,6 +12,7 @@ using System.Text;
 //käyttäjätilin ja salasanan lisääminen tietokantaan -ok
 //tarkastus onko käyttäjänimi jo käytössä -ok
 //salasanan tarkastus -ok
+//Login metodin pitää hakea tietokannasta oikealla user id:llä tiedot tauluista
 
 //****Nice to have -osasto*****
 //salasanan vaihtaminen
@@ -25,6 +26,7 @@ public class UserAccount
     // Properties to store the username and hashed password
     public string Username { get; private set; }
     public string Password { get; private set; }
+
     public string Salt { get; private set; }
 
     // Generate a cryptographically secure random salt of the specified size
