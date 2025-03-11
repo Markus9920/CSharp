@@ -27,9 +27,6 @@ public class UserAccount
     public string Password { get; private set; }
     public string Salt { get; private set; }
 
-    //väliaikainen lista, johon olio tallennetaan
-    List<UserAccount> userAccounts = new List<UserAccount>();
-
     // Generate a cryptographically secure random salt of the specified size
     byte[] salt = RandomNumberGenerator.GetBytes(saltSize);
     string[] hashPasswordResult; //string array to store passwordhash and salt
@@ -98,7 +95,7 @@ public class UserAccount
                 Console.WriteLine("Give valid username!");
                 continue;
             }
-            if (userAccounts.Any(user => user.Username == username))
+            if (UserDatabaseManager.CheckIfUsernameExists(username))
             {
                 Console.WriteLine("Username already exists! Please type another username.");
                 continue;
@@ -140,10 +137,6 @@ public class UserAccount
         // Compare the newly computed hash with the stored hash using a secure, time-resistant method
         return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(Password));
     }
-    private UserAccount FindUser(string username)
-    {
-        return userAccounts.FirstOrDefault(user => user.Username == username)!;
-    }
     public void Login()
     {
         string username = "";
@@ -155,8 +148,6 @@ public class UserAccount
             Console.Write("Enter username:");
             username = Console.ReadLine() ?? String.Empty;
 
-            UserAccount user = FindUser(username);
-
             if (username == String.Empty)
             {
                 Console.WriteLine("Empty input");
@@ -164,7 +155,7 @@ public class UserAccount
             }
             else
             {
-                if (user != null)//if username is found, ask for password
+                if (UserDatabaseManager.CheckIfUsernameExists(username))//if username is found, ask for password
                 {
                     Console.WriteLine("User found!");
                     //Query for password
@@ -180,7 +171,7 @@ public class UserAccount
                         }
                         else
                         {
-                            if (user.VerifyPassword(password))//if verification passed
+                            if (UserDatabaseManager.CheckPassword(username, password))//if verification passed
                             {
                                 Console.WriteLine("Password correct!");
                                 break;
@@ -190,10 +181,11 @@ public class UserAccount
                                 Console.WriteLine("Incorrect password!");
                                 continue;
                             }
-                        }
+                        }  
                     }
+                    break;
                 }
             }
-        }
+        }      
     }
 }
