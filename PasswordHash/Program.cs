@@ -12,9 +12,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        UserAccount userAccount = new UserAccount(); //this must be called, because it establishes database connection and hadles the package installation
         DatabaseCreator.InitializeDatabase(); //Method that establishes database and creates tables needed.
-
 
         while (true)
         {
@@ -29,16 +27,16 @@ class Program
             switch (input)
             {
                 case "1":
-                    UserDatabaseManager.CreateAccout();
+                    UserAccount.CreateAccout();
                     break;
                 case "2":
-                    UserDatabaseManager.Login();
+                    UserAccount.Login();
                     break;
                 case"3":
                     UserDatabaseManager.GetAllUsers();
                     break;
                 case"4":
-                    UserDatabaseManager.DeleteUser();
+                    UserAccount.DeleteUser();
                     break;        
                 default:
                 Console.WriteLine("Give valid input");  

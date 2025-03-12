@@ -19,7 +19,7 @@ public static class DatabaseCreator
             Console.WriteLine("\nEstablishing SQL database");          
             CreateTableForUsers(connection);
             Console.WriteLine("Establishing SQL database completed\n");
-            //PackageManager.InstallSQLPackages();
+            PackageManager.InstallSQLPackages();
 
 
         }

@@ -28,14 +28,6 @@ public class UserAccount
     const int iterations = 350000;  // Number of iterations for PBKDF2 to increase security
     HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512; // Define the hash algorithm to be used (SHA-512 in this case)
 
-    //constructor without properties. Just to get to use the methods. No null properties
-    public UserAccount()
-    {
-        Username = String.Empty; 
-        Password = String.Empty;
-        Salt = String.Empty;
-        hashPasswordResult = [];
-    }
 
     // Constructor to create a new user account with username and password
     public UserAccount(string username, string password)
@@ -69,4 +61,143 @@ public class UserAccount
         // Return the hashed password as a hexadecimal string
         return [Convert.ToHexString(hash), Convert.ToHexString(salt)];  // Return the password hash and the salt as hex string in array
     } 
+    public static void Login()
+    {
+        string username = "";
+        string password = "";
+        Console.WriteLine("Log in to user account");
+        //Query for username
+        while (true)
+        {
+            Console.Write("Enter username:");
+            username = Console.ReadLine() ?? String.Empty;
+
+            if (username == String.Empty)
+            {
+                Console.WriteLine("Empty input");
+                continue;
+            }
+            else
+            {
+                if (UserDatabaseManager.CheckIfUsernameExists(username))//if username is found, ask for password
+                {
+                    Console.WriteLine("User found!");
+                    //Query for password
+                    while (true)
+                    {
+                        Console.WriteLine("Enter password:");
+                        password = Console.ReadLine() ?? String.Empty;
+
+                        if (username == String.Empty)
+                        {
+                            Console.WriteLine("Empty input");
+                            continue;
+                        }
+                        else
+                        {
+                            if (UserDatabaseManager.CheckPassword(username, password))//if verification passed
+                            {
+                                Console.WriteLine("Password correct!");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorrect password!");
+                                continue;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    public static void CreateAccout()
+    {
+        string username = "";
+        string password = "";
+        //Query for username
+        Console.WriteLine("Create user account");
+        while (true)
+        {
+            Console.Write("Give username: ");
+            username = Console.ReadLine() ?? String.Empty;
+
+            if (username == String.Empty)
+            {
+                Console.WriteLine("Give valid username!");
+                continue;
+            }
+            if (UserDatabaseManager.CheckIfUsernameExists(username))
+            {
+                Console.WriteLine("Username already exists! Please type another username.");
+                continue;
+            }
+            Console.WriteLine();
+            break;
+        }
+
+        //Query for password
+        while (true)
+        {
+            Console.Write("Give password: ");
+            password = Console.ReadLine() ?? String.Empty;
+
+            if (password == String.Empty)
+            {
+                Console.WriteLine("Give valid password");
+                continue;
+            }
+            Console.WriteLine();
+            break;
+        }
+        //Creates new account
+        UserAccount userAccount = new UserAccount(username, password);
+
+        Console.WriteLine($"Hashed password: {userAccount.Password}");
+        Console.WriteLine($"Salt: {userAccount.Salt}");
+
+        UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
+    }
+     public static void DeleteUser()
+    {
+        int parsedID = 0;
+        //Method to remove user from database.
+        UserDatabaseManager.GetAllUsers(); //gets all the users from database
+
+        while (true)
+        {
+            Console.WriteLine("Give ID for deleting user");
+            string id = Console.ReadLine() ?? String.Empty;
+
+            if (id == String.Empty || !int.TryParse(id, out parsedID)) //if id is empty, or it cannot be parsed to int
+            {
+                Console.WriteLine("Give valid ID!");
+            }
+            break;
+        }
+        Console.WriteLine($"ID: {parsedID}");
+
+        while (true)
+        {
+            Console.WriteLine($"Are you sure you want to delete user with ID: {parsedID} Y/N?");
+            string answer = Console.ReadLine() ?? String.Empty;
+            if (answer == "Y" || answer == "y")
+            {
+                UserDatabaseManager.DeleteUserByID(parsedID);
+                break;
+            }
+            else if (answer == String.Empty)
+            {
+                Console.WriteLine("Invalid input");
+                continue;
+            }
+            else
+            {
+                Console.WriteLine("Cancel user delete");
+                break;
+            }
+        }
+
+    }
 }

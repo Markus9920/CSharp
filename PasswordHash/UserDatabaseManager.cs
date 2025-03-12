@@ -12,8 +12,8 @@ using Mysqlx.Resultset;
 
 
 //*********TODO***********
-//CreateAccount -metodin siirto tähän luokkaan ja toiminnallisuuden muutokset(?) -ok(katto ny vielä!!)
-//Login metodin siirto tähän luokkaan samanlailla niinkuin yllä mainittu -ok(katto ny vielä!!)
+//CreateAccount -metodista pitää tehdä uusi versio, joka toimii API kanssa yhteen
+//Login -metodista pitää tehdä uusi versio, joka toimii API kanssa yhteen
 //Luo käyttäjä -ok
 //Hae kaikki käyttäjät -ok
 //Hae käyttäjä id:llä
@@ -47,7 +47,8 @@ public static class UserDatabaseManager
             return row > 0;
         }
     }
-    private static bool CheckIfUsernameExists(string username) //checks if the username is already in use
+
+    public static bool CheckIfUsernameExists(string username) //checks if the username is already in use 
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -64,7 +65,8 @@ public static class UserDatabaseManager
             return count > 0;
         }
     }
-    private static bool CheckPassword(string username, string passwordInput)
+
+    public static bool CheckPassword(string username, string passwordInput)
     //gets the password and salt based on username from database and makes comparison
     {
         using (var connection = new SqliteConnection(userDataBase))
@@ -101,6 +103,7 @@ public static class UserDatabaseManager
             return false;
         }
     }
+
     public static bool GetAllUsers()
     {
         //Gets all users and id's from database.
@@ -126,48 +129,8 @@ public static class UserDatabaseManager
         }
         return true;
     }
-    public static void DeleteUser()
-    {
-        int parsedID = 0;
-        //Method to remove user from database.
-        GetAllUsers(); //gets all the users from database
 
-        while (true)
-        {
-            Console.WriteLine("Give ID for deleting user");
-            string id = Console.ReadLine() ?? String.Empty;
-
-            if (id == String.Empty || !int.TryParse(id, out parsedID)) //if id is empty, or it cannot be parsed to int
-            {
-                Console.WriteLine("Give valid ID!");
-            }
-            break;
-        }
-        Console.WriteLine($"ID: {parsedID}");
-
-        while (true)
-        {
-            Console.WriteLine($"Are you sure you want to delete user with ID: {parsedID} Y/N?");
-            string answer = Console.ReadLine() ?? String.Empty;
-            if (answer == "Y" || answer == "y")
-            {
-                DeleteUserByID(parsedID);
-                break;
-            }
-            else if (answer == String.Empty)
-            {
-                Console.WriteLine("Invalid input");
-                continue;
-            }
-            else
-            {
-                Console.WriteLine("Cancel user delete");
-                break;
-            }
-        }
-
-    }
-    private static bool DeleteUserByID(int ID)
+    public static bool DeleteUserByID(int ID)
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -190,104 +153,5 @@ public static class UserDatabaseManager
             }
         }
         return false;
-    }
-    //***These methods are not making SQL querys. These are just used inside query methods
-    public static void Login()
-    {
-        string username = "";
-        string password = "";
-        Console.WriteLine("Log in to user account");
-        //Query for username
-        while (true)
-        {
-            Console.Write("Enter username:");
-            username = Console.ReadLine() ?? String.Empty;
-
-            if (username == String.Empty)
-            {
-                Console.WriteLine("Empty input");
-                continue;
-            }
-            else
-            {
-                if (CheckIfUsernameExists(username))//if username is found, ask for password
-                {
-                    Console.WriteLine("User found!");
-                    //Query for password
-                    while (true)
-                    {
-                        Console.WriteLine("Enter password:");
-                        password = Console.ReadLine() ?? String.Empty;
-
-                        if (username == String.Empty)
-                        {
-                            Console.WriteLine("Empty input");
-                            continue;
-                        }
-                        else
-                        {
-                            if (CheckPassword(username, password))//if verification passed
-                            {
-                                Console.WriteLine("Password correct!");
-                                break;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect password!");
-                                continue;
-                            }
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-    }
-    public static void CreateAccout()
-    {
-        string username = "";
-        string password = "";
-        //Query for username
-        Console.WriteLine("Create user account");
-        while (true)
-        {
-            Console.Write("Give username: ");
-            username = Console.ReadLine() ?? String.Empty;
-
-            if (username == String.Empty)
-            {
-                Console.WriteLine("Give valid username!");
-                continue;
-            }
-            if (CheckIfUsernameExists(username))
-            {
-                Console.WriteLine("Username already exists! Please type another username.");
-                continue;
-            }
-            Console.WriteLine();
-            break;
-        }
-
-        //Query for password
-        while (true)
-        {
-            Console.Write("Give password: ");
-            password = Console.ReadLine() ?? String.Empty;
-
-            if (password == String.Empty)
-            {
-                Console.WriteLine("Give valid password");
-                continue;
-            }
-            Console.WriteLine();
-            break;
-        }
-        //Creates new account
-        UserAccount userAccount = new UserAccount(username, password);
-
-        Console.WriteLine($"Hashed password: {userAccount.Password}");
-        Console.WriteLine($"Salt: {userAccount.Salt}");
-
-        AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
     }
 }
