@@ -20,10 +20,9 @@ public static class DatabaseCreator
             CreateTableForUsers(connection);
             Console.WriteLine("Establishing SQL database completed\n");
             PackageManager.InstallSQLPackages();
-
-
         }
     }
+    
     static void CreateTableForUsers(SqliteConnection conn)
     {
         conn.Open();

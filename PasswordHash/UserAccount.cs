@@ -60,7 +60,7 @@ public class UserAccount
 
         // Return the hashed password as a hexadecimal string
         return [Convert.ToHexString(hash), Convert.ToHexString(salt)];  // Return the password hash and the salt as hex string in array
-    } 
+    }
     public static void Login()
     {
         string username = "";
@@ -159,7 +159,7 @@ public class UserAccount
 
         UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
     }
-     public static void DeleteUser()
+    public static void DeleteUser()
     {
         int parsedID = 0;
         //Method to remove user from database.
@@ -184,8 +184,17 @@ public class UserAccount
             string answer = Console.ReadLine() ?? String.Empty;
             if (answer == "Y" || answer == "y")
             {
-                UserDatabaseManager.DeleteUserByID(parsedID);
-                break;
+                if (UserDatabaseManager.DeleteUserByID(parsedID))
+                {
+                    Console.WriteLine($"User with ID: {parsedID} deleted");
+                    break;
+                }
+                else //f not it is zero and not one or greater
+                {
+                    Console.WriteLine($"User with ID: {parsedID} not found");
+                    continue;
+                }
+
             }
             else if (answer == String.Empty)
             {

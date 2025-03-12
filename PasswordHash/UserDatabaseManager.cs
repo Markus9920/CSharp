@@ -96,11 +96,11 @@ public static class UserDatabaseManager
                 byte[] hashForComparing = Rfc2898DeriveBytes.Pbkdf2(passwordInput, salt, iterations, HashAlgorithmName.SHA512, keySize);
 
                 connection.Close();
+
                 // Compare the new hash with the hash from database
                 return CryptographicOperations.FixedTimeEquals(hashForComparing, Convert.FromHexString(passwordHashFromDataBase));
-            }
-            connection.Close();
-            return false;
+            } 
+            return false;    
         }
     }
 
@@ -126,8 +126,8 @@ public static class UserDatabaseManager
                 Console.WriteLine($"ID: {result.GetInt32(0)} Username: {result.GetString(1)}");
             }
             connection.Close();
-        }
-        return true;
+            return true;
+        }     
     }
 
     public static bool DeleteUserByID(int ID)
@@ -140,18 +140,9 @@ public static class UserDatabaseManager
             deleteUserCommand.Parameters.AddWithValue("$id", ID);
             int row = deleteUserCommand.ExecuteNonQuery(); //saves the integer from database to variable
 
-            if (row > 0) //if integer returned from database is greater than zero, then it is actual id 
-            {
-                Console.WriteLine($"User with ID: {ID} deleted");
-                connection.Close();
-                return row > 0;
-            }
-            else //f not it is zero and not one or greater
-            {
-                Console.WriteLine($"User with ID: {ID} not found");
-                connection.Close();
-            }
+
+            connection.Close();
+            return row > 0; //true/false
         }
-        return false;
     }
 }
