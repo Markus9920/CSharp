@@ -72,10 +72,10 @@
           }
         }
       },
-      "Microsoft.Data.Sqlite/9.0.2": {
+      "Microsoft.Data.Sqlite/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "9.0.2",
+          "Microsoft.Data.Sqlite.Core": "9.0.3",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.10",
           "SQLitePCLRaw.core": "2.1.10"
         },
@@ -86,7 +86,7 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.Data.Sqlite.Core/9.0.2": {
+      "Microsoft.Data.Sqlite.Core/9.0.3": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.10"
@@ -784,24 +784,24 @@
         "lib/netstandard2.1/K4os.Hash.xxHash.xml"
       ]
     },
-    "Microsoft.Data.Sqlite/9.0.2": {
-      "sha512": "61su148W1dVLxlTnDAQb870RhYrzHJ1OE4ggtOpM/V+xRlzWL9nbJ9Gj6lROhpZnYxoVXXBxOm9rnk12mn2vtA==",
+    "Microsoft.Data.Sqlite/9.0.3": {
+      "sha512": "rqw1EZ30C6bRTQ2P9/UVWNpiJhw+n4YtmBqoXXlxpdZuACvGDIZcOsOv2WPjL8HHdOJvTIh8yOufJI0HLWfAoA==",
       "type": "package",
-      "path": "microsoft.data.sqlite/9.0.2",
+      "path": "microsoft.data.sqlite/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "lib/netstandard2.0/_._",
-        "microsoft.data.sqlite.9.0.2.nupkg.sha512",
+        "microsoft.data.sqlite.9.0.3.nupkg.sha512",
         "microsoft.data.sqlite.nuspec"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/9.0.2": {
-      "sha512": "lJbaLhjWnnPfLhZrQXPri5F0pmlJXg68yCSf5aRM3qFF8WD7dT1jnQUuBd3YvT5s1VDOH9t/6filPcTIOwZR7Q==",
+    "Microsoft.Data.Sqlite.Core/9.0.3": {
+      "sha512": "rhNmI4KqeL6bOtZ7KwLVZLjrj0Bnf0PFq5Nlv2uOj9n1UuPYTbJaa816EJH5Hp5FM04H2iUcFtmmvqrl3xRCmA==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/9.0.2",
+      "path": "microsoft.data.sqlite.core/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -813,7 +813,7 @@
         "lib/net8.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.9.0.2.nupkg.sha512",
+        "microsoft.data.sqlite.core.9.0.3.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
@@ -2036,7 +2036,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Microsoft.Data.Sqlite >= 9.0.2",
+      "Microsoft.Data.Sqlite >= 9.0.3",
       "MySql.Data >= 9.2.0",
       "Npgsql >= 9.0.3"
     ]
@@ -2093,7 +2093,7 @@
         "dependencies": {
           "Microsoft.Data.Sqlite": {
             "target": "Package",
-            "version": "[9.0.2, )"
+            "version": "[9.0.3, )"
           },
           "MySql.Data": {
             "target": "Package",
@@ -2120,7 +2120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.104/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

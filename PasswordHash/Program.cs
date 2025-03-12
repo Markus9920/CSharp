@@ -18,7 +18,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("(1) Create account (2) Login");
+            Console.WriteLine("(1) Create account (2) Login (3) Get users from databas (4) Delete user from database");
             string input = Console.ReadLine() ?? String.Empty;
 
             if (input == String.Empty)
@@ -29,14 +29,19 @@ class Program
             switch (input)
             {
                 case "1":
-                    userAccount.CreateAccout();
+                    UserDatabaseManager.CreateAccout();
                     break;
                 case "2":
-                    userAccount.Login();
+                    UserDatabaseManager.Login();
                     break;
+                case"3":
+                    UserDatabaseManager.GetAllUsers();
+                    break;
+                case"4":
+                    UserDatabaseManager.DeleteUser();
+                    break;        
                 default:
                 Console.WriteLine("Give valid input");  
-                Console.WriteLine("(1) Create account (2) Login (3) Install SQL packages");
                 break; 
             }
         }

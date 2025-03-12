@@ -7,18 +7,6 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.Data.Sqlite;
 using System.Text;
 
-
-//****TODO*****
-//käyttäjätilin ja salasanan lisääminen tietokantaan -ok
-//tarkastus onko käyttäjänimi jo käytössä -ok
-//salasanan tarkastus -ok
-//Login metodin pitää hakea tietokannasta oikealla user id:llä tiedot tauluista
-
-//****Nice to have -osasto*****
-//salasanan vaihtaminen
-//kirjautumisyritykset x -kertaa
-
-
 namespace PasswordHash;
 
 public class UserAccount
@@ -40,13 +28,13 @@ public class UserAccount
     const int iterations = 350000;  // Number of iterations for PBKDF2 to increase security
     HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512; // Define the hash algorithm to be used (SHA-512 in this case)
 
-    //constructor without properties. Just to get to use the methods.
+    //constructor without properties. Just to get to use the methods. No null properties
     public UserAccount()
     {
-        Username = String.Empty;
+        Username = String.Empty; 
         Password = String.Empty;
         Salt = String.Empty;
-        hashPasswordResult = new string[2];
+        hashPasswordResult = [];
     }
 
     // Constructor to create a new user account with username and password
@@ -79,115 +67,6 @@ public class UserAccount
         // Print the hashed password (hexadecimal format) and salt (hexadecimal format)
 
         // Return the hashed password as a hexadecimal string
-        return new string[] { Convert.ToHexString(hash), Convert.ToHexString(salt) };  // Return the password hash and the salt as hex string
-    }
-    public void CreateAccout()
-    {
-        string username = "";
-        string password = "";
-        //Query for username
-        Console.WriteLine("Create user account");
-        while (true)
-        {
-            Console.Write("Give username: ");
-            username = Console.ReadLine() ?? String.Empty;
-
-            if (username == String.Empty)
-            {
-                Console.WriteLine("Give valid username!");
-                continue;
-            }
-            if (UserDatabaseManager.CheckIfUsernameExists(username))
-            {
-                Console.WriteLine("Username already exists! Please type another username.");
-                continue;
-            }
-            Console.WriteLine();
-            break;
-        }
-
-        //Query for password
-        while (true)
-        {
-            Console.Write("Give password: ");
-            password = Console.ReadLine() ?? String.Empty;
-
-            if (password == String.Empty)
-            {
-                Console.WriteLine("Give valid password");
-                continue;
-            }
-            Console.WriteLine();
-            break;
-        }
-        //Creates new account
-        UserAccount userAccount = new UserAccount(username, password);
-
-        Console.WriteLine($"Hashed password: {userAccount.Password}");
-        Console.WriteLine($"Salt: {userAccount.Salt}");
-        //userAccounts.Add(userAccount);
-        //Console.WriteLine("Useraccount added into list.");
-        UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
-    }
-    //Method to verify the password
-    private bool VerifyPassword(string password)
-    {
-
-        byte[] saltBytes = Convert.FromHexString(this.Salt);// Convert the stored salt (hex string) back into a byte array
-        byte[] hashToCompare = Rfc2898DeriveBytes.Pbkdf2(password, saltBytes, iterations, hashAlgorithm, keySize);// Hash the input password using the stored salt
-
-        // Compare the newly computed hash with the stored hash using a secure, time-resistant method
-        return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(Password));
-    }
-    public void Login()
-    {
-        string username = "";
-        string password = "";
-        Console.WriteLine("Log in to user account");
-        //Query for username
-        while (true)
-        {
-            Console.Write("Enter username:");
-            username = Console.ReadLine() ?? String.Empty;
-
-            if (username == String.Empty)
-            {
-                Console.WriteLine("Empty input");
-                continue;
-            }
-            else
-            {
-                if (UserDatabaseManager.CheckIfUsernameExists(username))//if username is found, ask for password
-                {
-                    Console.WriteLine("User found!");
-                    //Query for password
-                    while (true)
-                    {
-                        Console.WriteLine("Enter password:");
-                        password = Console.ReadLine() ?? String.Empty;
-
-                        if (username == String.Empty)
-                        {
-                            Console.WriteLine("Empty input");
-                            continue;
-                        }
-                        else
-                        {
-                            if (UserDatabaseManager.CheckPassword(username, password))//if verification passed
-                            {
-                                Console.WriteLine("Password correct!");
-                                break;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect password!");
-                                continue;
-                            }
-                        }  
-                    }
-                    break;
-                }
-            }
-        }      
-    }
+        return [Convert.ToHexString(hash), Convert.ToHexString(salt)];  // Return the password hash and the salt as hex string in array
+    } 
 }
