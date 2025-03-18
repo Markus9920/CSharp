@@ -14,34 +14,14 @@ class Program
     {
         DatabaseCreator.InitializeDatabase(); //Method that establishes database and creates tables needed.
 
-        while (true)
+        Console.WriteLine("Use console(1)? or API(2)?");
+        if (Console.ReadLine() == "1")
         {
-            Console.WriteLine("(1) Create account (2) Login (3) Get users from database (4) Delete user from database");
-            string input = Console.ReadLine() ?? String.Empty;
-
-            if (input == String.Empty)
-            {
-                Console.WriteLine("Empty input!");
-                continue;
-            }
-            switch (input)
-            {
-                case "1":
-                    UserAccount.CreateAccout();
-                    break;
-                case "2":
-                    UserAccount.Login();
-                    break;
-                case"3":
-                    UserDatabaseManager.GetAllUsers();
-                    break;
-                case"4":
-                    UserAccount.DeleteUser();
-                    break;        
-                default:
-                Console.WriteLine("Give valid input");  
-                break; 
-            }
+            ConsoleApp.RunProgram();
+        }
+        else
+        {
+            Console.WriteLine("No API yet!");
         }
     }
 }

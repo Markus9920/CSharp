@@ -14,11 +14,9 @@ using Org.BouncyCastle.Asn1.Misc;
 
 
 //*********TODO***********
-//CreateAccount -metodista pitää tehdä uusi versio, joka toimii API kanssa yhteen
-//Login -metodista pitää tehdä uusi versio, joka toimii API kanssa yhteen
 //Luo käyttäjä -ok
 //Hae kaikki käyttäjät -ok
-//Hae käyttäjä id:llä
+//Hae käyttäjä id:llä -ok
 //päivitä käyttäjä
 //poista käyttäjä -ok
 //GetAllUsers pitää palauttaa lista (Dto) APIa varten!!!!!! -ok
@@ -30,10 +28,14 @@ using Org.BouncyCastle.Asn1.Misc;
 namespace PasswordHash;
 public static class UserDatabaseManager
 {
+    private const int saltSize = 16;//Used for salting and hashing new password
+    private const int iterations = 350000;//Used for salting and hashing new password
+    private const int keySize = 64;//Used for salting and hashing new password
 
-    private static readonly string userDataBase = "Data Source=userDatabase.db";
+    
+    private static readonly string userDataBase = "Data Source=userDatabase.db";//Address for db
 
-    public static bool AddUserToDataBase(string username, string password, string salt) //Adds user, passwordhash and salt to database
+ public static bool AddUserToDataBase(string username, string password, string salt)
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -44,36 +46,20 @@ public static class UserDatabaseManager
             addUserCommand.Parameters.AddWithValue("$passwordhash", password);
             addUserCommand.Parameters.AddWithValue("$salt", salt);
 
-            try
-            {
-                int row = addUserCommand.ExecuteNonQuery();
-                return row > 0;
-            }
-            catch (SqliteException ex) when (ex.SqliteErrorCode == 19)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-
+            int row = addUserCommand.ExecuteNonQuery();
+            connection.Close();
+            return row > 0;
         }
     }
 
     public static int Authentication(string username, string passwordInput)
-    //gets the password and salt based on username from database and makes comparison
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
-            //Variables to store data from database 
             string passwordHashFromDataBase = "";
             string saltFromDataBase = "";
-            int userId = 0;
+            int userId = -1;
 
-            //variables to use in password salting and hashing
             int iterations = 350000;
             int keySize = 64;
 
@@ -82,63 +68,74 @@ public static class UserDatabaseManager
             checkPasswordCommand.CommandText = "SELECT id, passwordhash, salt FROM Users WHERE username = $username";
             checkPasswordCommand.Parameters.AddWithValue("$username", username);
 
-            var result = checkPasswordCommand.ExecuteReader();
-
-            if (result.Read())
+            using (var result = checkPasswordCommand.ExecuteReader())
             {
-                //Saving the data from database to variables
-                userId = result.GetInt32(0);//id
-                passwordHashFromDataBase = result.GetString(1);//hash from db
-                saltFromDataBase = result.GetString(2);//passeord salt from db
-
-                byte[] salt = Convert.FromHexString(saltFromDataBase); // Convert stored salt from hex string to byte array
-
-                // Hash the input password using the stored salt
-                byte[] hashForComparing = Rfc2898DeriveBytes.Pbkdf2(passwordInput, salt, iterations, HashAlgorithmName.SHA512, keySize);
-
-
-
-                // Compare the new hash with the hash from database, if correct return userId
-                if (CryptographicOperations.FixedTimeEquals(hashForComparing, Convert.FromHexString(passwordHashFromDataBase)))
+                if (result.Read())
                 {
-                    connection.Close();
-                    return userId;
-                }
+                    userId = result.GetInt32(0);
+                    passwordHashFromDataBase = result.GetString(1);
+                    saltFromDataBase = result.GetString(2);
 
+                    byte[] salt = Convert.FromHexString(saltFromDataBase);
+                    byte[] hashForComparing = Rfc2898DeriveBytes.Pbkdf2(passwordInput, salt, iterations, HashAlgorithmName.SHA512, keySize);
+
+                    if (CryptographicOperations.FixedTimeEquals(hashForComparing, Convert.FromHexString(passwordHashFromDataBase)))
+                    {
+                        return userId;
+                    }
+                }
             }
             connection.Close();
-            return 0;
+            return userId;
         }
     }
 
-    public static List<UserDTo> GetAllUsers()
+    public static List<UserDTO> GetAllUsers()
     {
-        List<UserDTo> users = new List<UserDTo>();
-        //Gets all users and id's from database.
+        List<UserDTO> users = new List<UserDTO>();
+
         using (var connection = new SqliteConnection(userDataBase))
         {
             connection.Open();
             var getAllUsersCommand = connection.CreateCommand();
             getAllUsersCommand.CommandText = "SELECT id, username FROM Users ORDER BY id";
 
-            var result = getAllUsersCommand.ExecuteReader();
-
-            while (result.Read()) //adds all data into list as an object
+            using (var result = getAllUsersCommand.ExecuteReader())
             {
-                users.Add(new UserDTo(result.GetInt32(0), result.GetString(1)));
+                while (result.Read())
+                {
+                    users.Add(new UserDTO(result.GetInt32(0), result.GetString(1)));
+                }
             }
 
-            foreach(var user in users)
-            {
-                Console.WriteLine($"{user.Id} {user.Username}");
-            }
             connection.Close();
-            return users; //returns list
-
+            return users;
         }
     }
 
-    public static bool DeleteUserByID(int Id)
+    public static UserDTO? GetUserId(int id)
+    {
+        using (var connection = new SqliteConnection(userDataBase))
+        {
+            connection.Open();
+            var getUserIdCommand = connection.CreateCommand();
+            getUserIdCommand.CommandText = "SELECT id, username FROM Users WHERE id = $id";
+            getUserIdCommand.Parameters.AddWithValue("$id", id);
+
+            using (var result = getUserIdCommand.ExecuteReader())
+            {
+                if (result.Read())
+                {
+                    return new UserDTO(result.GetInt32(0), result.GetString(1));
+                }
+            }
+
+            connection.Close();
+            return null;
+        }
+    }
+
+    public static bool DeleteUserById(int Id)
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
@@ -146,11 +143,53 @@ public static class UserDatabaseManager
             var deleteUserCommand = connection.CreateCommand();
             deleteUserCommand.CommandText = "DELETE FROM Users WHERE id = $id";
             deleteUserCommand.Parameters.AddWithValue("$id", Id);
-            int row = deleteUserCommand.ExecuteNonQuery(); //saves the integer from database to variable
-
-
+            int row = deleteUserCommand.ExecuteNonQuery();
             connection.Close();
-            return row > 0; //true/false
+            return row > 0;
         }
+    }
+
+    public static bool ChangePassword(string username, string oldPassword, string newPassword)
+    {
+        int userId = Authentication(username, oldPassword);
+
+        if (userId < 0)
+        {
+            return false;
+        }
+
+        string[] newPass = HashPassword(newPassword);
+        string newPassHash = newPass[0];
+        string newPassSalt = newPass[1];
+
+        using (var connection = new SqliteConnection(userDataBase))
+        {
+            connection.Open();
+            var changePasswordCommand = connection.CreateCommand();
+            changePasswordCommand.CommandText = "UPDATE Users SET passwordhash = $passwordhash, salt = $salt WHERE id = $id";
+            changePasswordCommand.Parameters.AddWithValue("$passwordhash", newPassHash);
+            changePasswordCommand.Parameters.AddWithValue("$salt", newPassSalt);
+            changePasswordCommand.Parameters.AddWithValue("$id", userId);
+
+            int rows = changePasswordCommand.ExecuteNonQuery();
+            connection.Close();
+            return rows > 0;
+        }
+    }
+
+    private static string[] HashPassword(string password)
+    {
+        HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
+
+        byte[] salt = RandomNumberGenerator.GetBytes(saltSize);
+
+        byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
+            Encoding.UTF8.GetBytes(password),
+            salt,
+            iterations,
+            hashAlgorithm,
+            keySize);
+
+        return [Convert.ToHexString(hash), Convert.ToHexString(salt)];
     }
 }
