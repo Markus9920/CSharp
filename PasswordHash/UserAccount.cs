@@ -69,7 +69,7 @@ public class UserAccount
         //Query for username
         while (true)
         {
-            Console.Write("Enter username:");
+            Console.Write("Enter username: ");
             username = Console.ReadLine() ?? String.Empty;
 
             if (username == String.Empty)
@@ -77,39 +77,24 @@ public class UserAccount
                 Console.WriteLine("Empty input");
                 continue;
             }
-            else
-            {
-                if (UserDatabaseManager.CheckIfUsernameExists(username))//if username is found, ask for password
-                {
-                    Console.WriteLine("User found!");
-                    //Query for password
-                    while (true)
-                    {
-                        Console.WriteLine("Enter password:");
-                        password = Console.ReadLine() ?? String.Empty;
 
-                        if (username == String.Empty)
-                        {
-                            Console.WriteLine("Empty input");
-                            continue;
-                        }
-                        else
-                        {
-                            if (UserDatabaseManager.CheckPassword(username, password))//if verification passed
-                            {
-                                Console.WriteLine("Password correct!");
-                                break;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect password!");
-                                continue;
-                            }
-                        }
-                    }
-                    break;
-                }
+            Console.Write("Enter password: ");
+            password = Console.ReadLine() ?? String.Empty;
+
+            if (password == String.Empty)
+            {
+                Console.WriteLine("Empty input");
+                continue;
             }
+
+            int? userId = UserDatabaseManager.Authentication(username, password);
+            if (userId != null)
+            {
+                Console.WriteLine($"Logged in as user id: {userId}");
+                break;
+            }
+            Console.WriteLine("Incorrect username or password");
+            continue;
         }
     }
     public static void CreateAccout()
@@ -128,18 +113,8 @@ public class UserAccount
                 Console.WriteLine("Give valid username!");
                 continue;
             }
-            if (UserDatabaseManager.CheckIfUsernameExists(username))
-            {
-                Console.WriteLine("Username already exists! Please type another username.");
-                continue;
-            }
-            Console.WriteLine();
-            break;
-        }
 
-        //Query for password
-        while (true)
-        {
+            //Query for password
             Console.Write("Give password: ");
             password = Console.ReadLine() ?? String.Empty;
 
@@ -148,16 +123,15 @@ public class UserAccount
                 Console.WriteLine("Give valid password");
                 continue;
             }
-            Console.WriteLine();
-            break;
+
+            //Creates new account
+            UserAccount userAccount = new UserAccount(username, password);
+
+            Console.WriteLine($"Hashed password: {userAccount.Password}");
+            Console.WriteLine($"Salt: {userAccount.Salt}");
+
+            UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
         }
-        //Creates new account
-        UserAccount userAccount = new UserAccount(username, password);
-
-        Console.WriteLine($"Hashed password: {userAccount.Password}");
-        Console.WriteLine($"Salt: {userAccount.Salt}");
-
-        UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt);
     }
     public static void DeleteUser()
     {

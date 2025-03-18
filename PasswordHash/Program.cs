@@ -16,7 +16,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("(1) Create account (2) Login (3) Get users from databas (4) Delete user from database");
+            Console.WriteLine("(1) Create account (2) Login (3) Get users from database (4) Delete user from database");
             string input = Console.ReadLine() ?? String.Empty;
 
             if (input == String.Empty)

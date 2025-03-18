@@ -19,15 +19,15 @@ public static class DatabaseCreator
             Console.WriteLine("\nEstablishing SQL database");          
             CreateTableForUsers(connection);
             Console.WriteLine("Establishing SQL database completed\n");
-            PackageManager.InstallSQLPackages();
+            //PackageManager.InstallSQLPackages();
         }
     }
-    
-    static void CreateTableForUsers(SqliteConnection conn)
+
+    private static void CreateTableForUsers(SqliteConnection conn)
     {
         conn.Open();
         var createUsersTableCommand = conn.CreateCommand();
-        createUsersTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
+        createUsersTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
         createUsersTableCommand.ExecuteNonQuery();
         conn.Close();
     }
