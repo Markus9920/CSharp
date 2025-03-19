@@ -23,3 +23,15 @@ DictionaryExcercise/obj/ChatGPTDictionaryTehtava.csproj.nuget.dgspec.json
 DictionaryExcercise/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
 DictionaryExcercise/obj/Debug/net6.0/apphost.exe
 DictionaryExcercise/obj/Debug/net6.0/ChatGPTDictionaryTehtava.AssemblyInfo.cs
+PasswordHash/bin/Debug/net9.0/PasswordHash.deps.json
+PasswordHash/bin/Debug/net9.0/PasswordHash.exe
+PasswordHash/bin/Debug/net9.0/PasswordHash.runtimeconfig.json
+PasswordHash/obj/Debug/net9.0/apphost.exe
+PasswordHash/obj/Debug/net9.0/PasswordHash.AssemblyInfo.cs
+PasswordHash/obj/Debug/net9.0/PasswordHash.sourcelink.json
+PasswordHash/obj/PasswordHash.csproj.nuget.dgspec.json
+PasswordHash/obj/PasswordHash.csproj.nuget.g.props
+PasswordHash/obj/PasswordHash.csproj.nuget.g.targets
+PasswordHash/obj/project.assets.json
+PasswordHash/packageDataBase.db
+PasswordHash/userDatabase.db

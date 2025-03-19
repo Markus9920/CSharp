@@ -13,6 +13,8 @@ class Program
     static void Main(string[] args)
     {
         DatabaseCreator.InitializeDatabase(); //Method that establishes database and creates tables needed.
+        PackageManager.InstallSQLPackagesAndAddToDatabase(); //Method that installs all packages needed, if not installed (not found from db)
+
 
         Console.WriteLine("Use console(1)? or API(2)?");
         if (Console.ReadLine() == "1")

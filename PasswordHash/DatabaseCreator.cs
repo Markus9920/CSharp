@@ -6,30 +6,61 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Data.Sqlite;
 using System.Text;
+using Microsoft.OpenApi.Validations;
 
 namespace PasswordHash;
 public static class DatabaseCreator
 {
-    private static readonly string userDataBase = "Data Source=userDatabase.db";
-
+    private const string userDataBase = "Data Source=userDatabase.db"; //Address for db
+    private const string packageDataBase = "Data Source=packageDataBase.db"; //Address for db
     public static void InitializeDatabase()
     {
         using (var connection = new SqliteConnection(userDataBase))
         {
-            Console.WriteLine("\nEstablishing SQL database");          
-            CreateTableForUsers(connection);
+            connection.Open();
+            Console.WriteLine("\nEstablishing SQL database");
+
+            for (int i = 0; i < 20; i++) //cool loading effect
+            {
+                Console.Write("*"); 
+                Thread.Sleep(50);
+            }
+
+            Console.WriteLine();
+            CreateTableForUsers();
+            CreatePackageManagerTable();
             Console.WriteLine("Establishing SQL database completed\n");
-            //PackageManager.InstallSQLPackages();
+            connection.Close();
         }
     }
 
-    private static void CreateTableForUsers(SqliteConnection conn)
+    private static void CreateTableForUsers()
     {
-        conn.Open();
-        var createUsersTableCommand = conn.CreateCommand();
-        createUsersTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
-        createUsersTableCommand.ExecuteNonQuery();
-        conn.Close();
+        using (var connection = new SqliteConnection(userDataBase))
+        {
+            const string command =
+           "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
+
+            connection.Open();
+            var createUsersTableCommand = connection.CreateCommand();
+            createUsersTableCommand.CommandText = command;
+            createUsersTableCommand.ExecuteNonQuery();
+            connection.Close();
+        }
+    }
+    public static void CreatePackageManagerTable() //holds installed packages
+    {
+        using (var connection = new SqliteConnection(packageDataBase))
+        {
+            const string command =
+            "CREATE TABLE IF NOT EXISTS Packages (id INTEGER PRIMARY KEY AUTOINCREMENT, package_name TEXT UNIQUE NOT NULL)";
+
+            connection.Open();
+            var createPackageManagerTable = connection.CreateCommand();
+            createPackageManagerTable.CommandText = command;
+            createPackageManagerTable.ExecuteNonQuery();
+            connection.Close();
+        }
     }
     //other table creation functionality
 }

@@ -134,10 +134,12 @@ public static class ConsoleApp
             if (UserDatabaseManager.AddUserToDataBase(userAccount.Username, userAccount.Password, userAccount.Salt))
             {
                 Console.WriteLine($"User {userAccount.Username} created succesfully!");
+                break;
             }
             else
             {
                 Console.WriteLine("User already exists!");
+                break;
             }
         }
     }
@@ -154,15 +156,18 @@ public static class ConsoleApp
                 if (UserDatabaseManager.DeleteUserById(userId))
                 {
                     Console.WriteLine($"User {userId} deleted succesfully");
+                    break;
                 }
                 else
                 {
                     Console.WriteLine("User not found!");
+                    break;
                 }
             }
             else
             {
                 Console.WriteLine("Invalid Input!");
+                break;
             }
         }
     }
