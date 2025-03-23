@@ -30,7 +30,7 @@ public static class PackageManager
         string swaggerUI = "Swashbuckle.AspNetCore.SwaggerUI";
  
         List<string> packages = new List<string> { sqlite, entityFrameworkCore, swagger, swaggerGen, swaggerUI }; //saves package names to list
-        List<string> installedPackages = GetPackagesFromDataBase(); //list for installed packages
+        List<string> installedPackages = GetPackagesFromDataBase(); //list of installed packages
 
         foreach (var package in packages)
         {
