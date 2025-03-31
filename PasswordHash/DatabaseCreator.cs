@@ -6,49 +6,66 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Data.Sqlite;
 using System.Text;
-using Microsoft.OpenApi.Validations;
 
 namespace PasswordHash;
 public static class DatabaseCreator
 {
-    private const string userDataBase = "Data Source=userDatabase.db"; //Address for db
-    private const string packageDataBase = "Data Source=packageDataBase.db"; //Address for db
+    private static readonly string dataBase = "Data Source=Database.db";
+        private const string packageDataBase = "Data Source=packageDataBase.db"; //Address for db
+
     public static void InitializeDatabase()
     {
-        using (var connection = new SqliteConnection(userDataBase))
+        using (var connection = new SqliteConnection(dataBase))
         {
-            connection.Open();
-            Console.WriteLine("\nEstablishing SQL database");
-
-            for (int i = 0; i < 20; i++) //cool loading effect
-            {
-                Console.Write("*"); 
-                Thread.Sleep(50);
-            }
-
-            Console.WriteLine();
-            CreateTableForUsers();
+            CreateTableForUsers(connection);
+            CreateMandatoryExpensesTable(connection);
             CreatePackageManagerTable();
-            Console.WriteLine("Establishing SQL database completed\n");
-            connection.Close();
+            PackageManager.InstallSQLPackagesAndAddToDatabase(); //intaller for packages needed
         }
     }
 
-    private static void CreateTableForUsers()
+    private static void CreateTableForUsers(SqliteConnection connection)
     {
-        using (var connection = new SqliteConnection(userDataBase))
+        string command =
+        "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
+
+
+        var createUsersTableCommand = connection.CreateCommand();
+        createUsersTableCommand.CommandText = command;
+
+        connection.Open();
+        createUsersTableCommand.ExecuteNonQuery();
+        connection.Close();
+    }
+
+
+    //Method to create a mandatory expenses table if it does not exist - Метод для создания таблицы обязательных расходов, если она не существует
+    private static void CreateMandatoryExpensesTable(SqliteConnection conn)
+    {
+        string command = @"
+                    CREATE TABLE IF NOT EXISTS MandatoryExpenses (
+                        userID INTEGER NOT NULL,
+                        expenseID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT NOT NULL,
+                        cost REAL NOT NULL
+                    );
+                ";
+
+        using (var connection = new SqliteConnection(dataBase))
         {
-            const string command =
-           "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
+
+            var createMandatoryExpensesTable = connection.CreateCommand();
+            createMandatoryExpensesTable.CommandText = command;
 
             connection.Open();
-            var createUsersTableCommand = connection.CreateCommand();
-            createUsersTableCommand.CommandText = command;
-            createUsersTableCommand.ExecuteNonQuery();
+            createMandatoryExpensesTable.ExecuteNonQuery();
             connection.Close();
         }
+        //Copyright
+        //*** This code was written by Olesia ***
     }
-    public static void CreatePackageManagerTable() //holds installed packages
+
+     public static void CreatePackageManagerTable() //holds installed packages
     {
         using (var connection = new SqliteConnection(packageDataBase))
         {
@@ -62,5 +79,4 @@ public static class DatabaseCreator
             connection.Close();
         }
     }
-    //other table creation functionality
 }

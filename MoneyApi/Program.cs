@@ -26,5 +26,5 @@ app.MapControllers();
 
 app.Run();
 
-
+//use this in web browser when running
 //http://localhost:5113/swagger

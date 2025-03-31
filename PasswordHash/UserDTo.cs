@@ -15,7 +15,7 @@ using Google.Protobuf.WellKnownTypes;
 
 
 namespace PasswordHash;
-public class UserDTO //DTo class to used to return necessary data from API
+public class UserDTO //DTO class to used to return necessary data from API
 {
     public int Id { get; private set; }
     public string Username { get; private set; }
