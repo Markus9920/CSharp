@@ -11,7 +11,8 @@ using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.Data.Sqlite;
 
 
-using BudgetManager.Models; //this is how we can find this folder and the classes they hold
+using BudgetManager.Models;
+using Microsoft.AspNetCore.Http.HttpResults; //this is how we can find this folder and the classes they hold
 
 namespace BudgetManager.Services;
 
@@ -36,8 +37,7 @@ public class TokenService
   private readonly string _key;
   private readonly string _issuer;
   private readonly string _audience;
-
-  private readonly int _expMinutes = 60;
+  public readonly TimeSpan expMinutes = TimeSpan.FromMinutes(60);
 
   public TokenService(IConfiguration conf) // by using IConfiguration(build in), we can get the key from appsettings.json file.
   {
@@ -48,19 +48,20 @@ public class TokenService
     _audience = conf["JwtSettings:Audience"] ?? throw new Exception("Error: audience not found");
   }
 
-  public string CreateToken(int userId)
+  public string CreateToken(int userId, string username)
   {
     //takes every character in key string -> to byte -> into array of bytes using UTF8
-    var encodedKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
+    SymmetricSecurityKey encodedKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
 
     //this creates the info for signig the token for logged in user
     //gives info about how to create hash later, when we encrypt the sign for token
-    var credentials = new SigningCredentials(encodedKey, SecurityAlgorithms.HmacSha256);
+    SigningCredentials credentials = new SigningCredentials(encodedKey, SecurityAlgorithms.HmacSha256);
 
     //Claims about useraccount. This is info we add to token for reading it later.
     var claimArray = new[]
     {
-        new Claim("userId", userId.ToString())
+        new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+        new Claim(ClaimTypes.Name, username)
     };
 
     //now  create the actual token
@@ -68,7 +69,7 @@ public class TokenService
       issuer: _issuer, //from who?
       audience: _audience, //to who?
       claims: claimArray, //what are the claims we make about user
-      expires: DateTime.Now.AddMinutes(_expMinutes), //how long until the token expires i.e. how long until the session ends
+      expires: DateTime.UtcNow.Add(expMinutes), //how long until the token expires i.e. how long until the session ends
       signingCredentials: credentials //how to sign the token
     );
 
@@ -76,4 +77,68 @@ public class TokenService
     return new JwtSecurityTokenHandler().WriteToken(token);
 
   }
+
+  //this method holds the fukctionality to validate token
+  public ClaimsPrincipal? Validate(string token) //method that returns identity information
+  {
+    //object for reading the token
+    JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+    byte[] key = Encoding.UTF8.GetBytes(_key); //byte array of the key, that is used to sign the token
+
+    try
+    {
+      //parameters for how to validate the token
+      TokenValidationParameters parameters = new TokenValidationParameters
+      {
+        ValidateIssuer = true, //check who created the token
+        ValidateAudience = true, //check fro who is the token for
+        ValidateLifetime = true, //is the token expired
+        ValidateIssuerSigningKey = true, //is the token signed using the correct key
+        IssuerSigningKey = new SymmetricSecurityKey(key), //key to check if token is signed with the same key created when token was sgined the first time
+        ClockSkew = TimeSpan.Zero, //don't allow any overrun of time in tokens expiration
+        ValidIssuer = _issuer,
+        ValidAudience = _audience
+      };
+
+      ClaimsPrincipal principal = handler.ValidateToken(token, parameters, out _); //returns the validated token, but we dont use it that's why _. It is discarded.
+
+      return principal; //this returns user info if token is valid
+    }
+    catch (Exception)
+    {
+      return null; //returns null if token is not valid. This is something we can wait to happen. That's why null
+    }
+  }
+  public void SetCookie(HttpResponse response, string token) //this saves the token into cookies
+  {
+    CookieOptions cookieOptions = new CookieOptions
+    {
+      HttpOnly = true, //not possible to read using javascript, so there in no haXXors making xss attacks
+      Secure = !Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.Equals("Development") ?? true, //if in development state or published
+      SameSite = SameSiteMode.Strict, //this cookie is sent only if its used in this site strictly
+      Expires = DateTime.UtcNow.Add(expMinutes)
+    };
+
+    //gives instructions to browser for saving the token in cookies
+    response.Cookies.Append("jwt", token, cookieOptions);
+  }
+
+  public void UpdateToken(HttpRequest request, HttpResponse response, int userId, string username)
+  {
+    if (!TokenExists(request))
+    {
+      return;
+    }
+    RemoveCookie(response);
+
+    string newToken = CreateToken(userId, username);
+
+    SetCookie(response, newToken);
+  }
+
+  //this checks if token is found
+  public bool TokenExists(HttpRequest request) => request.Cookies.ContainsKey("jwt");
+
+  //this is for removing token
+  public void RemoveCookie(HttpResponse response) => response.Cookies.Delete("jwt");
 }

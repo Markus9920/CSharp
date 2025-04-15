@@ -13,9 +13,9 @@ namespace BudgetManager.Models;
 
 public class ExpenseDTO //DTO class to used to return necessary data from API
 {
-    public string? Name { get; set; }
-    public double? Cost { get; set; }
-    public string? Category { get; set; }
+    public string? Name { get; init; } //only readable
+    public double? Cost { get; init; }
+    public string? Category { get; init; }
 
     public ExpenseDTO() //Empty constructor is needed for json deserialization. Otherwise we will get -> "System.NotSupportedException"
     {}

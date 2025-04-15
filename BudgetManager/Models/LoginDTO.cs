@@ -13,8 +13,8 @@ namespace BudgetManager.Models;
 
 public class LoginDTO //DTO class for API to handle data
 {
-    public string? Username { get; set; }
-    public string? Password { get; set; }
+    public string? Username { get; init; } //only readable
+    public string? Password { get; init; }
 
     public LoginDTO() //Empty constructor is needed for json deserialization. Otherwise we will get -> "System.NotSupportedException"
     { }

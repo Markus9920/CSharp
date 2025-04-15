@@ -23,26 +23,10 @@ public static class DatabaseManager
     private static readonly string dataBase = "Data Source=dataBase.db";//Address for db
 
 
-#region useraccount database management
+    #region useraccount database management
 
-#endregion
-#region methods for account management in database
-    private static string[] HashPassword(string password) //hashes password before adding to db
-    {
-        HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-
-        byte[] salt = RandomNumberGenerator.GetBytes(saltSize);
-
-        byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
-            Encoding.UTF8.GetBytes(password),
-            salt,
-            iterations,
-            hashAlgorithm,
-            keySize);
-
-        return [Convert.ToHexString(hash), Convert.ToHexString(salt)];
-    }
-
+    #endregion
+    #region methods for account management in database
     //**** Methods for users table******
     public static bool AddUserToDataBase(string username, string password, string salt) // add new user to database, if not existing
     {
@@ -80,13 +64,6 @@ public static class DatabaseManager
 
         using (var connection = new SqliteConnection(dataBase))
         {
-            string passwordHashFromDataBase = "";
-            string saltFromDataBase = "";
-            int userId = -1;//stays this way if reader does not find anything
-
-            int iterations = 350000;
-            int keySize = 64;
-
 
             var checkPasswordCommand = connection.CreateCommand();
             checkPasswordCommand.CommandText = command;
@@ -97,59 +74,82 @@ public static class DatabaseManager
             {
                 if (result.Read())
                 {
-                    userId = result.GetInt32(0);
-                    passwordHashFromDataBase = result.GetString(1);
-                    saltFromDataBase = result.GetString(2);
+                    int userId = result.GetInt32(0);
+                    string passwordHashFromDataBase = result.GetString(1);
+                    string saltFromDataBase = result.GetString(2);
 
-                    //creates hash from given password and compares to password in db
-                    byte[] salt = Convert.FromHexString(saltFromDataBase);
-                    byte[] hashForComparing = Rfc2898DeriveBytes.Pbkdf2(passwordInput, salt, iterations, HashAlgorithmName.SHA512, keySize);
 
-                    if (CryptographicOperations.FixedTimeEquals(hashForComparing, Convert.FromHexString(passwordHashFromDataBase)))
+                    if (UserAccount.Verify(passwordInput, passwordHashFromDataBase, saltFromDataBase))
                     {
                         return userId; //return userid if found
                     }
                 }
             }
             connection.Close();
-            return userId; //return -1 if nothing found
+            return -1; //return -1 if nothing found
         }
     }
-        public static bool ChangePassword(string username, string oldPassword, string newPassword)
+    public static bool ChangePassword(int userId, string oldPassword, string newPassword)
     {
-
-        string command =
-        "UPDATE Users SET passwordhash = $passwordhash, salt = $salt WHERE id = $id";
-
-        //Changes old password to new one and hashes it
-        int userId = Authentication(username, oldPassword);
-
-        if (userId < 0)
-        {
-            return false;
-        }
-
-        string[] newPass = HashPassword(newPassword);//array of hash and salt
-        string newPassHash = newPass[0];
-        string newPassSalt = newPass[1];
+        string command = "SELECT passwordhash, salt FROM Users WHERE id = $id";
 
         using (var connection = new SqliteConnection(dataBase))
         {
+            string passwordHashFromDataBase = "";
+            string saltFromDataBase = "";
 
-            var changePasswordCommand = connection.CreateCommand();
-            changePasswordCommand.CommandText = command;
-            changePasswordCommand.Parameters.AddWithValue("$passwordhash", newPassHash);
-            changePasswordCommand.Parameters.AddWithValue("$salt", newPassSalt);
-            changePasswordCommand.Parameters.AddWithValue("$id", userId);
+            var getUserCommand = connection.CreateCommand();
+            getUserCommand.CommandText = command;
+            getUserCommand.Parameters.AddWithValue("$id", userId);
 
             connection.Open();
-            int rows = changePasswordCommand.ExecuteNonQuery();
+
+            using (var result = getUserCommand.ExecuteReader())
+            {
+                if (result.Read())
+                {
+                    passwordHashFromDataBase = result.GetString(0);
+                    saltFromDataBase = result.GetString(1);
+                }
+                else
+                {
+                    return false; // user not found
+                }
+            }
+
+            //verify the old password
+            bool isCorrect = UserAccount.Verify(oldPassword, passwordHashFromDataBase, saltFromDataBase);
+
+            Console.WriteLine(oldPassword);
+            Console.WriteLine(passwordHashFromDataBase);
+            Console.WriteLine(saltFromDataBase);
+            if (!isCorrect)
+            {   
+                return false;
+            }
+
+            //Creates new password
+            var (hash, salt) = UserAccount.NewPassword(newPassword);
+            string newHash = Convert.ToHexString(hash);
+            string newSalt = Convert.ToHexString(salt);
+
+            string updateCommandText = "UPDATE Users SET passwordhash = $passwordhash, salt = $salt WHERE id = $id";
+
+            var updateCommand = connection.CreateCommand();
+            updateCommand.CommandText = updateCommandText;
+            updateCommand.Parameters.AddWithValue("$passwordhash", newHash);
+            updateCommand.Parameters.AddWithValue("$salt", newSalt);
+            updateCommand.Parameters.AddWithValue("$id", userId);
+
+            int rows = updateCommand.ExecuteNonQuery();
             connection.Close();
-            return rows > 0; //affected row greater than zero means its true
+
+            return rows > 0;
         }
     }
 
-#region Admin methods(admin account not existing yet)
+
+    #region Admin methods(admin account not existing yet)
     public static List<UserDTO> GetAllUsers() //get all users from bd and put into list of Data Transfer Objects
     {
         string command = "SELECT id, username FROM Users ORDER BY id";
@@ -219,7 +219,7 @@ public static class DatabaseManager
             return row > 0; //affected row greater than zero means its true
         }
     }
-#endregion
+    #endregion
 
 
     #endregion

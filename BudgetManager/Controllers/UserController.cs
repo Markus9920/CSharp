@@ -1,5 +1,5 @@
-
 //this is how we can find these folders and the classes they hold
+using System.Security.Claims;
 using BudgetManager.Data;
 using BudgetManager.Models;
 using BudgetManager.Services;
@@ -9,10 +9,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace budgetManager.Controllers
 {
     /*
-    ToDo:
+        ToDo ja muistio:
 
-    Metodi sisäänkirjautumiselle
-    Metodi salasanan vaihtamiselle
+        Luokkaroolien muistisääntö:
+        Controller = vastaanottaa HTTP-pyynnön ja palauttaa vastauksen
+        Service = tekee varsinaisen sovelluslogiikan (esim. tokenin luonti/tarkastus)
+        Repository / Manager = hakee ja tallentaa tietoa esim. tietokannasta
+        DTO = kuljettaa tietoa sisään ja ulos (esim. JSON-objekti)
+        => Yksi luokka, yksi vastuu – ei sekoiteta tehtäviä
     */
 
     //attributes
@@ -28,19 +32,18 @@ namespace budgetManager.Controllers
             _tokenService = tokenService;
         }
 
-
-
+        //endpoint
         [HttpPost] // address for method below
-        public IActionResult CreateUser([FromBody] NewUserDTO NewuserDto) //method for creating new user add data tranfer object
+        public IActionResult CreateUser([FromBody] NewUserDTO newUserDto) //method for creating new user add data tranfer object
         {
-            if (string.IsNullOrWhiteSpace(NewuserDto.Username) || string.IsNullOrWhiteSpace(NewuserDto.Password))
+            if (string.IsNullOrWhiteSpace(newUserDto.Username) || string.IsNullOrWhiteSpace(newUserDto.Password))
             {
                 return BadRequest("Please type username and password.");
             }
 
-            var newAccount = new UserAccount(NewuserDto.Username, NewuserDto.Password); //new data tranfer object containing new user info
+            UserAccount newAccount = new UserAccount(newUserDto.Username, newUserDto.Password); //new data transfer object containing new user info
 
-            bool succes = DatabaseManager.AddUserToDataBase(newAccount.Username, newAccount.Password, newAccount.Salt);
+            bool succes = DatabaseManager.AddUserToDataBase(newAccount.Username, newAccount.GetPass(), newAccount.GetSalt());
 
             if (!succes)
             {
@@ -50,26 +53,91 @@ namespace budgetManager.Controllers
             return Ok($"{newAccount.Username} created."); // if !succes is false we can do return Ok!
         }
 
+        //endpoint
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginDTO loginDto)
         {
+            //if there is old token still existing, we delete it
+            if (_tokenService.TokenExists(Request))
+            {
+                _tokenService.RemoveCookie(Response);
+            }
 
-            if (string.IsNullOrWhiteSpace(loginDto.Username) || string.IsNullOrWhiteSpace(loginDto.Password))
+            if (string.IsNullOrWhiteSpace(loginDto.Username) || string.IsNullOrWhiteSpace(loginDto.Password)) // if empty input
             {
                 return BadRequest("Please type username and password.");
             }
 
-            var userId = DatabaseManager.Authentication(loginDto.Username, loginDto.Password);
+            int userId = DatabaseManager.Authentication(loginDto.Username, loginDto.Password); //user id from database using own made authentication method
 
-            if (userId <= 0)
+            if (userId <= 0) //user id cannot be 0 or less
             {
                 return Unauthorized("Login error: Invalid credentials.");
             }
 
-            var token = _tokenService.CreateToken(userId);
+            string token = _tokenService.CreateToken(userId, loginDto.Username);
 
-            return Ok(new { token });
+            _tokenService.SetCookie(Response, token);
 
+            return Ok(new { token }); //returns the token
+        }
+
+        //endpoint
+        [HttpPost("logout")] //Method to log out
+        public IActionResult Logout()
+        {
+            if (!_tokenService.TokenExists(Request))
+            {
+                return BadRequest("No token found");
+            }
+
+            _tokenService.RemoveCookie(Response);
+            return Ok("Succesfully logged out");
+        }
+
+        //endpoint
+        [HttpPost("change-password")]//method to change password
+        public IActionResult ChangePassword([FromBody] ChangePasswordDTO changePasswordDTO)
+        {
+            if (String.IsNullOrWhiteSpace(changePasswordDTO.Username) ||
+            String.IsNullOrWhiteSpace(changePasswordDTO.OldPassword) ||
+            String.IsNullOrWhiteSpace(changePasswordDTO.NewPassword))
+            {
+                return BadRequest("All fields required.");
+            }
+
+            string? token = Request.Cookies["jwt"];
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized("Token cannot be found.");
+            }
+
+            ClaimsPrincipal? principal = _tokenService.Validate(token);
+
+            if (principal == null)
+            {
+                return Unauthorized("Token is expired or it is invalid.");
+            }
+
+            //string is empty or string cannot be parsed to int, as id numers are in database
+            string? userIdAsString = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (String.IsNullOrEmpty(userIdAsString) || !int.TryParse(userIdAsString, out int userId))//also converts userIdAsString => userId
+            {
+                return Unauthorized("Missing or invalid token.");
+            }
+
+            bool success = DatabaseManager.ChangePassword(userId, changePasswordDTO.OldPassword!, changePasswordDTO.NewPassword!);
+
+            if (!success)
+            {
+                return Unauthorized("Incorrect password or user does not exists");
+            }
+
+            _tokenService.UpdateToken(Request, Response, userId, changePasswordDTO.Username);
+
+            return Ok("New password changed succesfully.");
         }
     }
 }
