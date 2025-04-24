@@ -1,40 +1,42 @@
+using System;
+using System.Diagnostics;
 using BudgetManager.Data;
 using BudgetManager.Services;
-using BudgetManager.Models;
-using System.Diagnostics;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Models;
 
+var builder = WebApplication.CreateBuilder(args);
+
+// initialize database
 DatabaseCreator.InitializeDatabase();
 
-var builder = WebApplication.CreateBuilder(args); //Builder object. Gathers all the necessary options and services
+// 1️⃣ CORS pitää rekisteröidä ennen Build()
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSwagger", policy =>
+        policy
+            .WithOrigins("http://localhost:5099")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+    );
+});
 
-
-// Add services to the container.
-builder.Services.AddControllers(); //Registers controller classes.
-builder.Services.AddScoped<TokenService>(); //TokenService class from Services folder
-
-
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-
-//these are for swagger
-builder.Services.AddOpenApi();
+// 2️⃣ Lisää palvelut
+builder.Services.AddControllers();
+builder.Services.AddScoped<TokenService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "BudgetManager", Version = "v1" });
-
-    
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer",
+        Name         = "Authorization",
+        Type         = SecuritySchemeType.ApiKey,
+        Scheme       = "Bearer",
         BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "Syötä 'Bearer' ja sitten välilyönti ja token. Esim: Bearer eyJhbGc... jne."
+        In           = ParameterLocation.Header,
+        Description  = "Syötä 'Bearer ' ja sitten token. Esim: Bearer eyJhbGciOiJIUzI1Ni..."
     });
-
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -43,7 +45,7 @@ builder.Services.AddSwaggerGen(c =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id   = "Bearer"
                 }
             },
             Array.Empty<string>()
@@ -51,43 +53,50 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build();//This creates the WebAplication object that is the actual program
+var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 3️⃣ Staattiset tiedostot, jotta Swagger‑UI pystyy lataamaan withCredentials.js
+app.UseStaticFiles();
+
+// 4️⃣ Ota CORS‑politiikka käyttöön
+app.UseCors("AllowSwagger");
+
+// 5️⃣ Swagger UI konfiguraatio (vain dev‑tilassa)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "BudgetManager v1");
+        c.InjectJavascript("/swagger-ui/withCredentials.js"); // lisää credentials: 'include'
+    });
 }
 
-app.UseHttpsRedirection(); //Directs all the Http calls into Https for safety
+// 6️⃣ HTTPS‑redirect
+app.UseHttpsRedirection();
 
+// 7️⃣ Token‑validation middleware
+app.UseMiddleware<TokenValidationMiddleware>();
+
+// 8️⃣ .NET Core authentication & authorization (tarvittaessa)
 app.UseAuthentication();
-app.UseAuthorization(); //Makes possible to check authorizations.
+app.UseAuthorization();
 
-app.MapControllers(); //Routes all the http calls to controllers
+// 9️⃣ Map controller‑reitit
+app.MapControllers();
 
-
-//This opens the swagger ui in browser, so there is no need to do it manually every time.
-var url = "http://localhost:5099/swagger";
+// 10️⃣ Avaa Swagger automaattisesti (valinnainen)
 try
 {
     Process.Start(new ProcessStartInfo
     {
-        FileName = url,
+        FileName        = "http://localhost:5099/swagger",
         UseShellExecute = true
     });
 }
 catch
 {
-    Console.WriteLine("Error, open swagger ui manually {url}");
+    Console.WriteLine("Open http://localhost:5099/swagger manually");
 }
 
-
-app.Run(); //Runs the program
-
-//use this in web browser when running
-//http://localhost:5099/swagger // of if this is not the correct address, check the console
-/* for example. This is the first line in console after "Building..." 
-info: Microsoft.Hosting.Lifetime[14]
-Now listening on: http://localhost:5099  just add /swagger to the address */
+app.Run();

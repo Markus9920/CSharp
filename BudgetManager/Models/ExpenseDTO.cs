@@ -8,22 +8,23 @@ using Microsoft.Data.Sqlite;
 
 
 
-namespace BudgetManager.Models;
-
-
-public class ExpenseDTO //DTO class to used to return necessary data from API
+namespace BudgetManager.Models
 {
-    public string? Name { get; init; } //only readable
-    public double? Cost { get; init; }
-    public string? Category { get; init; }
 
-    public ExpenseDTO() //Empty constructor is needed for json deserialization. Otherwise we will get -> "System.NotSupportedException"
-    {}
-
-    public ExpenseDTO(string name, double cost, string category)
+    public class ExpenseDTO //DTO class to used to return necessary data from API
     {
-        Name = name;
-        Cost = cost;
-        Category = category;
+        public string? Name { get; init; } //only readable
+        public double? Cost { get; init; }
+        public string? Category { get; init; }
+
+        public ExpenseDTO() //Empty constructor is needed for json deserialization. Otherwise we will get -> "System.NotSupportedException"
+        { }
+
+        public ExpenseDTO(string name, double cost, string category)
+        {
+            Name = name;
+            Cost = cost;
+            Category = category;
+        }
     }
 }

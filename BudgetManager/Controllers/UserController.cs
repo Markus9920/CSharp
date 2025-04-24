@@ -34,6 +34,7 @@ namespace budgetManager.Controllers
 
         //endpoint
         [HttpPost] // address for method below
+        [AllowAnonMiddleware]//no need to be logged in, own made attribute
         public IActionResult CreateUser([FromBody] NewUserDTO newUserDto) //method for creating new user add data tranfer object
         {
             if (string.IsNullOrWhiteSpace(newUserDto.Username) || string.IsNullOrWhiteSpace(newUserDto.Password))
@@ -55,13 +56,12 @@ namespace budgetManager.Controllers
 
         //endpoint
         [HttpPost("login")]
+        [AllowAnonMiddleware]//no need to be logged in, own made attribute
         public IActionResult Login([FromBody] LoginDTO loginDto)
         {
             //if there is old token still existing, we delete it
-            if (_tokenService.TokenExists(Request))
-            {
-                _tokenService.RemoveCookie(Response);
-            }
+            _tokenService.RemoveAllTokens(Response);
+
 
             if (string.IsNullOrWhiteSpace(loginDto.Username) || string.IsNullOrWhiteSpace(loginDto.Password)) // if empty input
             {
@@ -75,23 +75,17 @@ namespace budgetManager.Controllers
                 return Unauthorized("Login error: Invalid credentials.");
             }
 
-            string token = _tokenService.CreateToken(userId, loginDto.Username);
-
-            _tokenService.SetCookie(Response, token);
+            string token = _tokenService.CreateTokens(Response, userId, loginDto.Username);
 
             return Ok(new { token }); //returns the token
         }
 
         //endpoint
         [HttpPost("logout")] //Method to log out
+        [AllowAnonMiddleware]//no need to be logged in, own made attribute
         public IActionResult Logout()
         {
-            if (!_tokenService.TokenExists(Request))
-            {
-                return BadRequest("No token found");
-            }
-
-            _tokenService.RemoveCookie(Response);
+            _tokenService.RemoveAllTokens(Response);
             return Ok("Succesfully logged out");
         }
 
@@ -99,45 +93,29 @@ namespace budgetManager.Controllers
         [HttpPost("change-password")]//method to change password
         public IActionResult ChangePassword([FromBody] ChangePasswordDTO changePasswordDTO)
         {
-            if (String.IsNullOrWhiteSpace(changePasswordDTO.Username) ||
-            String.IsNullOrWhiteSpace(changePasswordDTO.OldPassword) ||
-            String.IsNullOrWhiteSpace(changePasswordDTO.NewPassword))
+            if (string.IsNullOrWhiteSpace(changePasswordDTO.Username) ||
+                string.IsNullOrWhiteSpace(changePasswordDTO.OldPassword) ||
+                string.IsNullOrWhiteSpace(changePasswordDTO.NewPassword))
             {
                 return BadRequest("All fields required.");
             }
 
-            string? token = Request.Cookies["jwt"];
-
-            if (string.IsNullOrEmpty(token))
+            string? userIdAsString = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdAsString) || !int.TryParse(userIdAsString, out int userId))
             {
-                return Unauthorized("Token cannot be found.");
-            }
-
-            ClaimsPrincipal? principal = _tokenService.Validate(token);
-
-            if (principal == null)
-            {
-                return Unauthorized("Token is expired or it is invalid.");
-            }
-
-            //string is empty or string cannot be parsed to int, as id numers are in database
-            string? userIdAsString = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (String.IsNullOrEmpty(userIdAsString) || !int.TryParse(userIdAsString, out int userId))//also converts userIdAsString => userId
-            {
-                return Unauthorized("Missing or invalid token.");
+                return Unauthorized("Missing or invalid user ID in token.");
             }
 
             bool success = DatabaseManager.ChangePassword(userId, changePasswordDTO.OldPassword!, changePasswordDTO.NewPassword!);
 
             if (!success)
             {
-                return Unauthorized("Incorrect password or user does not exists");
+                return Unauthorized("Incorrect password or user does not exist.");
             }
 
-            _tokenService.UpdateToken(Request, Response, userId, changePasswordDTO.Username);
+            _tokenService.RefreshAccesToken(Request, Response, userId, changePasswordDTO.Username);
 
-            return Ok("New password changed succesfully.");
+            return Ok("New password changed successfully.");
         }
     }
 }

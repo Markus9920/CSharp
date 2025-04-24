@@ -7,86 +7,86 @@ using System.Text;
 using System.Threading;
 using Microsoft.Data.Sqlite;
 
-namespace BudgetManager.Data;
-
-public static class DatabaseCreator
+namespace BudgetManager.Data
 {
-    private static readonly string dataBase = "Data Source = Database.db";
-    private static readonly string packageDataBase = "Data Source = PackageDatabase.db";
-
-    public static void InitializeDatabase()
+    public static class DatabaseCreator
     {
-        using (var connection = new SqliteConnection(dataBase))
+        private static readonly string dataBase = "Data Source = Database.db";
+        private static readonly string packageDataBase = "Data Source = PackageDatabase.db";
+
+        public static void InitializeDatabase()
         {
-            CreateTableForUsers();
-            CreateTableForCategories();
-            CreateOtherExpensesTable();
-            CreateRecurringExpensesTable();
-            CreatePackageManagerTable();
-            PackageManager.InstallPackages();
-            CoolThing();
+            using (var connection = new SqliteConnection(dataBase))
+            {
+                CreateTableForUsers();
+                CreateTableForCategories();
+                CreateOtherExpensesTable();
+                CreateRecurringExpensesTable();
+                CreatePackageManagerTable();
+                PackageManager.InstallPackages();
+                CoolThing();
 
+            }
         }
-    }
 
-    private static void CreateTableForUsers()
-    {
-        string command =
-        @"CREATE TABLE IF NOT EXISTS Users 
+        private static void CreateTableForUsers()
+        {
+            string command =
+            @"CREATE TABLE IF NOT EXISTS Users 
         (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, 
         passwordhash TEXT NOT NULL, salt TEXT NOT NULL)";
 
-        using (var connection = new SqliteConnection(dataBase))
-        {
-            var createUsersTableCommand = connection.CreateCommand();
-            createUsersTableCommand.CommandText = command;
+            using (var connection = new SqliteConnection(dataBase))
+            {
+                var createUsersTableCommand = connection.CreateCommand();
+                createUsersTableCommand.CommandText = command;
 
-            connection.Open();
-            createUsersTableCommand.ExecuteNonQuery();
-            connection.Close();
+                connection.Open();
+                createUsersTableCommand.ExecuteNonQuery();
+                connection.Close();
+            }
         }
-    }
 
-    private static void CreateTableForCategories()
-    {
+        private static void CreateTableForCategories()
+        {
 
-        string command =
-        @"CREATE TABLE IF NOT EXISTS Categories
+            string command =
+            @"CREATE TABLE IF NOT EXISTS Categories
         (id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL)";
 
-        using (var connection = new SqliteConnection(dataBase))
-        {
-            var createTableForCategories = connection.CreateCommand();
-            createTableForCategories.CommandText = command;
+            using (var connection = new SqliteConnection(dataBase))
+            {
+                var createTableForCategories = connection.CreateCommand();
+                createTableForCategories.CommandText = command;
 
-            connection.Open();
-            createTableForCategories.ExecuteNonQuery();
-            connection.Close();
+                connection.Open();
+                createTableForCategories.ExecuteNonQuery();
+                connection.Close();
 
-            CategoryManager.FillCategoriesTable();
+                CategoryManager.FillCategoriesTable();
+            }
         }
-    }
-    public static void CreatePackageManagerTable() //holds installed packages
-    {
-
-
-        const string command =
-        "CREATE TABLE IF NOT EXISTS Packages (id INTEGER PRIMARY KEY AUTOINCREMENT, package_name TEXT UNIQUE NOT NULL)";
-
-        using (var connection = new SqliteConnection(packageDataBase))
+        public static void CreatePackageManagerTable() //holds installed packages
         {
-            connection.Open();
-            var createPackageManagerTable = connection.CreateCommand();
-            createPackageManagerTable.CommandText = command;
-            createPackageManagerTable.ExecuteNonQuery();
-            connection.Close();
-        }
-    }
 
-    //Method to create a mandatory expenses table if it does not exist - Метод для создания таблицы обязательных расходов, если она не существует
-    private static void CreateOtherExpensesTable()
-    {
-        string command = @"
+
+            const string command =
+            "CREATE TABLE IF NOT EXISTS Packages (id INTEGER PRIMARY KEY AUTOINCREMENT, package_name TEXT UNIQUE NOT NULL)";
+
+            using (var connection = new SqliteConnection(packageDataBase))
+            {
+                connection.Open();
+                var createPackageManagerTable = connection.CreateCommand();
+                createPackageManagerTable.CommandText = command;
+                createPackageManagerTable.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        //Method to create a mandatory expenses table if it does not exist - Метод для создания таблицы обязательных расходов, если она не существует
+        private static void CreateOtherExpensesTable()
+        {
+            string command = @"
                 CREATE TABLE IF NOT EXISTS OtherExpenses (
                 expenseID INTEGER PRIMARY KEY AUTOINCREMENT,
                 userID INTEGER NOT NULL,
@@ -95,22 +95,22 @@ public static class DatabaseCreator
                 FOREIGN KEY (userID) REFERENCES Users(id)
             );
             ";
-        using (var connection = new SqliteConnection(dataBase))
-        {
-            var createOtherExpensesTable = connection.CreateCommand();
-            createOtherExpensesTable.CommandText = command;
+            using (var connection = new SqliteConnection(dataBase))
+            {
+                var createOtherExpensesTable = connection.CreateCommand();
+                createOtherExpensesTable.CommandText = command;
 
-            connection.Open();
-            createOtherExpensesTable.ExecuteNonQuery();
-            connection.Close();
+                connection.Open();
+                createOtherExpensesTable.ExecuteNonQuery();
+                connection.Close();
+            }
+            //Copyright
+            //*** This code was written by Konsta ***
         }
-        //Copyright
-        //*** This code was written by Konsta ***
-    }
 
-    private static void CreateRecurringExpensesTable()
-    {
-        string command = @"
+        private static void CreateRecurringExpensesTable()
+        {
+            string command = @"
             CREATE TABLE IF NOT EXISTS RecurringExpenses (
                 expenseID INTEGER PRIMARY KEY AUTOINCREMENT,
                 userID INTEGER NOT NULL,
@@ -121,26 +121,27 @@ public static class DatabaseCreator
                 category TEXT
             );
         ";
-        using (var connection = new SqliteConnection(dataBase))
-        {
-            var createRecurringExpensesTable = connection.CreateCommand();
-            createRecurringExpensesTable.CommandText = command;
+            using (var connection = new SqliteConnection(dataBase))
+            {
+                var createRecurringExpensesTable = connection.CreateCommand();
+                createRecurringExpensesTable.CommandText = command;
 
-            connection.Open();
-            createRecurringExpensesTable.ExecuteNonQuery();
-            connection.Close();
+                connection.Open();
+                createRecurringExpensesTable.ExecuteNonQuery();
+                connection.Close();
+            }
+            //Copyright
+            //*** This code was written by Olesia ***
         }
-        //Copyright
-        //*** This code was written by Olesia ***
-    }
-    private static void  CoolThing()
-    {
-        Console.WriteLine("Establishing database.");
-        for (int i = 0; i < 25;i++)
+        private static void CoolThing()
         {
-            Console.Write("#");
-            Thread.Sleep(20);
+            Console.WriteLine("Establishing database.");
+            for (int i = 0; i < 25; i++)
+            {
+                Console.Write("#");
+                Thread.Sleep(20);
+            }
+            Console.WriteLine("\nDatabase established.");
         }
-        Console.WriteLine("\nDatabase established.");
     }
 }
