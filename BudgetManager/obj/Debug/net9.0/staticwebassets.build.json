@@ -1,0 +1,2165 @@
+{
+  "Version": 1,
+  "Hash": "22EoJups3BdyvG8tzWSqml12JBtxT+2yaD++9o+yrj8=",
+  "Source": "BudgetManager",
+  "BasePath": "_content/BudgetManager",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BudgetManager\\wwwroot",
+      "Source": "BudgetManager",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\2jsy6dmtku-1lt656i42k.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "css/styles#[.{fingerprint=1lt656i42k}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\css\\styles.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "q3f4wz4h0u",
+      "Integrity": "is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\css\\styles.css"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\6hge0bsvg6-9yhchswsqc.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "expenses#[.{fingerprint=9yhchswsqc}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\expenses.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "jieswdn4cx",
+      "Integrity": "exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\expenses.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ahrlzk8r7z-qehlu0puqk.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "home#[.{fingerprint=qehlu0puqk}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\home.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "p1atrc3hu5",
+      "Integrity": "4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\home.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ebtswde4ev-iarpravfzf.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "register#[.{fingerprint=iarpravfzf}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\register.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "7f56o23poh",
+      "Integrity": "8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\register.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\jrz0t4axyi-56tz5mptil.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "index#[.{fingerprint=56tz5mptil}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "gorr7co6tb",
+      "Integrity": "ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\nd6x68k0z8-h9y950nvlz.gz",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "js/main#[.{fingerprint=h9y950nvlz}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\js\\main.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "swzxcexhkq",
+      "Integrity": "9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\css\\styles.css",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "css/styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1lt656i42k",
+      "Integrity": "uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\expenses.html",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "expenses#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9yhchswsqc",
+      "Integrity": "4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\expenses.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\home.html",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "home#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qehlu0puqk",
+      "Integrity": "YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\images\\bg.jpg",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "images/bg#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8cobqx948a",
+      "Integrity": "+F3yf6D8Z0B7dR3q92ZjxY47U476vU+mldvyFpq+D8k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg.jpg"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\index.html",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "56tz5mptil",
+      "Integrity": "k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\js\\main.js",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "js/main#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h9y950nvlz",
+      "Integrity": "S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\register.html",
+      "SourceId": "BudgetManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\",
+      "BasePath": "_content/BudgetManager",
+      "RelativePath": "register#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iarpravfzf",
+      "Integrity": "amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\register.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/styles.1lt656i42k.css",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\2jsy6dmtku-1lt656i42k.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001054852321"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "947"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1lt656i42k"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.1lt656i42k.css",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1lt656i42k"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.1lt656i42k.css.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\2jsy6dmtku-1lt656i42k.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1lt656i42k"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\2jsy6dmtku-1lt656i42k.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001054852321"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "947"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwchylcYF1uNRRHmcgZsoDKMTp92rI8Pd5pc/2IiDQw="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\2jsy6dmtku-1lt656i42k.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-is6NB8DleVCpjd0MvK+GodDTdCwXtHY6YUMvogl2uyw="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.9yhchswsqc.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\6hge0bsvg6-9yhchswsqc.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000553097345"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9yhchswsqc"
+        },
+        {
+          "Name": "label",
+          "Value": "expenses.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.9yhchswsqc.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\expenses.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5130"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9yhchswsqc"
+        },
+        {
+          "Name": "label",
+          "Value": "expenses.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.9yhchswsqc.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\6hge0bsvg6-9yhchswsqc.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9yhchswsqc"
+        },
+        {
+          "Name": "label",
+          "Value": "expenses.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\6hge0bsvg6-9yhchswsqc.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000553097345"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\expenses.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5130"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4YaBA7FmFkwCsqQwVQnQYxVTVf8X7bQgQjWRHhgyT3E="
+        }
+      ]
+    },
+    {
+      "Route": "expenses.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\6hge0bsvg6-9yhchswsqc.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-exwm+Nvvss0K1wHujgE2ypLzwXNokqJcccDLxfs/KJ8="
+        }
+      ]
+    },
+    {
+      "Route": "home.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ahrlzk8r7z-qehlu0puqk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001194743130"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "836"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE="
+        }
+      ]
+    },
+    {
+      "Route": "home.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\home.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE="
+        }
+      ]
+    },
+    {
+      "Route": "home.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ahrlzk8r7z-qehlu0puqk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "836"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU="
+        }
+      ]
+    },
+    {
+      "Route": "home.qehlu0puqk.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ahrlzk8r7z-qehlu0puqk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001194743130"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "836"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qehlu0puqk"
+        },
+        {
+          "Name": "label",
+          "Value": "home.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE="
+        }
+      ]
+    },
+    {
+      "Route": "home.qehlu0puqk.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\home.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qehlu0puqk"
+        },
+        {
+          "Name": "label",
+          "Value": "home.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YjmOkge5Vqwk654N1+mKyt6vqyYe48e+omkIOXtKjTE="
+        }
+      ]
+    },
+    {
+      "Route": "home.qehlu0puqk.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ahrlzk8r7z-qehlu0puqk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "836"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qehlu0puqk"
+        },
+        {
+          "Name": "label",
+          "Value": "home.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wxmO9vA9iGGTW6SkC8HrM0xcEarMsv44mkrB5OHhRU="
+        }
+      ]
+    },
+    {
+      "Route": "images/bg.8cobqx948a.jpg",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\images\\bg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1281819"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+F3yf6D8Z0B7dR3q92ZjxY47U476vU+mldvyFpq+D8k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8cobqx948a"
+        },
+        {
+          "Name": "label",
+          "Value": "images/bg.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+F3yf6D8Z0B7dR3q92ZjxY47U476vU+mldvyFpq+D8k="
+        }
+      ]
+    },
+    {
+      "Route": "images/bg.jpg",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\images\\bg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1281819"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+F3yf6D8Z0B7dR3q92ZjxY47U476vU+mldvyFpq+D8k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+F3yf6D8Z0B7dR3q92ZjxY47U476vU+mldvyFpq+D8k="
+        }
+      ]
+    },
+    {
+      "Route": "index.56tz5mptil.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\jrz0t4axyi-56tz5mptil.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001253132832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "56tz5mptil"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM="
+        }
+      ]
+    },
+    {
+      "Route": "index.56tz5mptil.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1462"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "56tz5mptil"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM="
+        }
+      ]
+    },
+    {
+      "Route": "index.56tz5mptil.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\jrz0t4axyi-56tz5mptil.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "56tz5mptil"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\jrz0t4axyi-56tz5mptil.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001253132832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1462"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-k3RwVAVPgyuwpgDo/V2ZYZiOWseX99Dv1Jqc543x/aM="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\jrz0t4axyi-56tz5mptil.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ICQRbk0EUWiRdjcSFpl6GWSrZJ1La+Vqqx/cjv8ITIY="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.h9y950nvlz.js",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\nd6x68k0z8-h9y950nvlz.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000735835173"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1358"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h9y950nvlz"
+        },
+        {
+          "Name": "label",
+          "Value": "js/main.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.h9y950nvlz.js",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\js\\main.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4374"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h9y950nvlz"
+        },
+        {
+          "Name": "label",
+          "Value": "js/main.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.h9y950nvlz.js.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\nd6x68k0z8-h9y950nvlz.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h9y950nvlz"
+        },
+        {
+          "Name": "label",
+          "Value": "js/main.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.js",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\nd6x68k0z8-h9y950nvlz.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000735835173"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1358"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.js",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\js\\main.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4374"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S5Wz1h0vc2mRKgcMbJ5c0bZAYV7yjY5w0vGLsXhL7nU="
+        }
+      ]
+    },
+    {
+      "Route": "js/main.js.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\nd6x68k0z8-h9y950nvlz.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:49:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9PfPzVATrBWSmyzU8s39yPQTiCQ3TyCYG3PMny2mRrs="
+        }
+      ]
+    },
+    {
+      "Route": "register.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ebtswde4ev-iarpravfzf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001221001221"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "818"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk="
+        }
+      ]
+    },
+    {
+      "Route": "register.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk="
+        }
+      ]
+    },
+    {
+      "Route": "register.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ebtswde4ev-iarpravfzf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "818"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs="
+        }
+      ]
+    },
+    {
+      "Route": "register.iarpravfzf.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ebtswde4ev-iarpravfzf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001221001221"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "818"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iarpravfzf"
+        },
+        {
+          "Name": "label",
+          "Value": "register.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk="
+        }
+      ]
+    },
+    {
+      "Route": "register.iarpravfzf.html",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\wwwroot\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iarpravfzf"
+        },
+        {
+          "Name": "label",
+          "Value": "register.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-amk4R3LWNYdwpt/1KAg4dxoJMRmCDD5jSGOL1+xnxEk="
+        }
+      ]
+    },
+    {
+      "Route": "register.iarpravfzf.html.gz",
+      "AssetFile": "D:\\GitHub\\MoneyCheck-Application-\\BudgetManager\\obj\\Debug\\net9.0\\compressed\\ebtswde4ev-iarpravfzf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "818"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:12:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iarpravfzf"
+        },
+        {
+          "Name": "label",
+          "Value": "register.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8zCeUcNbqn8BFkWU0oArHCCE9Vm2TURJUAGT8i8CHPs="
+        }
+      ]
+    }
+  ]
+}

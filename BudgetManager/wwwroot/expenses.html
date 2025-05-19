@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Expense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Бесплатная версия Font Awesome -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-…"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <div id="login-container">
+    <!-- Left panel - Левая панель -->
+    <div id="login-left">
+      <h1>Add Expenses</h1>
+      <p>It's easy! Fill in the forms: </p>
+    </div>
+    <!-- Right panel - Правая панель -->
+    <div id="login-right">
+      <form id="form-expense">
+        <input name="description" type="text" placeholder="Description" required>
+        <input name="amount" type="number" step="0.1" placeholder="Amount" required>
+       
+
+        <select name="category" id="category" required>
+          <option value="">Type of expense</option>
+          <option value="current">Current</option>
+          <option value="recurrent">Recurrent</option>
+        </select>
+
+        <div id="frequency-container" style="display:none;">
+          <select name="frequency" id="frequency">
+            <option value="">Frequency</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+
+        <select name="group" id="group" required>
+            <option value="">Categories</option>
+            <option value="apartment">Apartment</option>
+            <option value="beauty">Beauty</option>
+            <option value="car">Car and transport</option>
+            <option value="education">Education</option>
+            <option value="food">Food and drinks</option>
+            <option value="hobbies">Hobbies</option>
+            <option value="restaurants, cafes and cinema">Restaurants, cafes and cinema</option>
+            <option value="sport">Sport and health</option>
+            <option value="travels">Travels</option> 
+          </select>
+  
+          <div id="frequency-container" style="display:none;">
+            <select name="frequency" id="frequency">
+              <option value="">Frequency</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+
+        <button type="submit">
+          <i class="fa-regular fa-circle-check"></i> Done
+        </button>
+        <button id="btn-expenses"><i class="fa-solid fa-coins"></i> My expensis</button>
+        </button>
+      </form>
+
+      <div class="message" id="msg-expense"></div>
+
+      <div class="link" style="margin-top:1rem;">
+        <span>or </span><a href="home.html">Back to Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const category = document.getElementById('category');
+      const freqContainer = document.getElementById('frequency-container');
+      const msg = document.getElementById('msg-expense');
+
+      // Show the choice of frequency only for recurrent - Показывать выбор частоты только для recurrent
+      category.addEventListener('change', () => {
+        freqContainer.style.display = category.value === 'recurrent' ? 'block' : 'none';
+      });
+
+      // Form sending processor - Обработчик отправки формы
+      document.getElementById('form-expense').addEventListener('submit', async e => {
+        e.preventDefault();
+        msg.textContent = '';
+        msg.style.color = 'red';
+
+        const amount = parseFloat(e.target.amount.value);
+        const description = e.target.description.value.trim();
+        const categoryValue = e.target.category.value;
+        if (!amount || !description || !categoryValue) {
+          return msg.textContent = 'Fill all the fields';
+        }
+
+        const payload = { amount, description, category: categoryValue };
+        if (categoryValue === 'recurrent') {
+          const freq = e.target.frequency.value;
+          if (!freq) {
+            return msg.textContent = 'Select the frequency';
+          }
+          payload.frequency = freq;
+        }
+
+        try {
+          const res = await fetch('/api/expenses', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            msg.textContent = 'The expense added successfully!';
+            msg.style.color = 'green';
+            e.target.reset();
+            freqContainer.style.display = 'none';
+          } else {
+            const text = await res.text();
+            msg.textContent = text || 'Server error';
+          }
+        } catch {
+          msg.textContent = 'Network error';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

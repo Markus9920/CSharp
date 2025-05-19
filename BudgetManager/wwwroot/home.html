@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome Icons (Иконки Font Awesome) -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-…"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+</head>
+<body>
+  <div id="login-container">
+    <!-- Left panel - Левая панель -->
+    <div id="login-left">
+      <h1>Your profile</h1>
+      <p>Manage settings here</p>
+    </div>
+    <!-- Right panel - Правая панель -->
+    <div id="login-right">
+    
+      <form id="form-change" style="margin-top: 2rem;">
+        
+        <button id="btn-expenses"><i class="fa-solid fa-coins"></i> My expensis</button>
+        <div class="spacer"></div>  <!-- ← пустой блок для отступа -->
+        <div class="spacer"></div>  <!-- ← пустой блок для отступа -->
+        <form id="form-change" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <p style="font-size: 0.9rem; color: #555;">
+          You can change your password here:
+        </p>
+        <input name="oldPassword" type="password" placeholder="Old Password" required>
+        <input name="newPassword" type="password" placeholder="New Password" required>
+        <button type="submit"><i class="fas fa-key"></i> Change Password</button>
+        <button id="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+       
+      </form>
+      <div class="message" id="msg"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

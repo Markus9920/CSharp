@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body, html {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* background and container centering (фон и центровка контейнера) */
+body {
+  background: url('../images/bg.jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* wrapper card (карточка-обёртка) */
+#login-container {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* left panel (левая панель) */
+#login-left {
+  flex: 1;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+#login-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+#login-left p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* right panel (правая панель) */
+#login-right {
+  flex: 1;
+  background: #fff;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#login-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+#login-right input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+#login-right input:focus {
+  border-color: #5A67D8;
+  outline: none;
+}
+#login-right button {
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #667EEA, #764BA2);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#login-right button:hover {
+  transform: translateY(-2px);
+}
+#login-right .link {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+#login-right .link a {
+  color: #667EEA;
+  text-decoration: none;
+}
+#login-right .link a:hover {
+  text-decoration: underline;
+}
+#login-right .message {
+  min-height: 1.2em;
+  font-size: 0.9rem;
+  color: red;
+}
