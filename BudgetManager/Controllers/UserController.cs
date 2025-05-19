@@ -8,16 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetManager.Controllers
 {
-    /*
-        ToDo ja muistio:
 
-        Luokkaroolien muistisääntö:
-        Controller = vastaanottaa HTTP-pyynnön ja palauttaa vastauksen
-        Service = tekee varsinaisen sovelluslogiikan (esim. tokenin luonti/tarkastus)
-        Repository / Manager = hakee ja tallentaa tietoa esim. tietokannasta
-        DTO = kuljettaa tietoa sisään ja ulos (esim. JSON-objekti)
-        => Yksi luokka, yksi vastuu – ei sekoiteta tehtäviä
-    */
 
     //attributes
     [ApiController] //attribute to give class abitlity to work with API 
