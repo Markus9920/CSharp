@@ -18,16 +18,8 @@ namespace BudgetManager.Services
 
 
 
-{/* there is a data added to appsettings.json we use to sign the token, we dont want to hardcode it
-into our class, so put it there.
-
-"JwtSettings": {
-    "TokenKey": "key_to_sign_jwt_token_with_length_of_at_least_32_bytes",
-    "Issuer": "BudgetManagerApi",
-    "Audience": "BudgetManagerFrontend"
-  } 
-    we make this class non static, because we want to get access to appsettings.json
-
+{
+  /*
     This class handles the function to make token for user who's logged in to our program
     that way we can easily pass userid with API calls, so we know that who was the user that
     is using our program and made the change to our program's database.*/
@@ -233,7 +225,7 @@ into our class, so put it there.
       var principal = ValidateToken(token);
 
 
-      return principal?.FindFirst(ClaimTypes.Name)?.Value; 
+      return principal?.FindFirst(ClaimTypes.Name)?.Value;
     }
 
     //Get tokens
