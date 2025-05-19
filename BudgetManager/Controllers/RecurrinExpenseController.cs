@@ -21,25 +21,6 @@ namespace BudgetManager.Controllers
             _tokenService = tokenService;
         }
 
-
-
-        //tokenia ei tarvitse tarkastaa(automaattinen), joten tokenservice voidaan jättää tästä pois
-        //miten päivämäärä asetetaan?
-        //ProcessRecurringExpenses() ajetaan kerran, kun ohjelma käynnistyy? Pitäisikö tehdä joku oma service luokka,
-        //joka hoitaa tarkastamisen?
-        //täytyy tehdä metodi, jolla saa expense id helposti haettua
-
-        //tehdäänkö uusi muuttuja tietokantaan, eli occuranceDate?
-
-
-        //pitää tehdä metodi, jolla haetaan maksuun tulevat kulut
-        //metodi, jolla muutetaan kulun tila isPaid => true, kulu siis merkataan maksetuksi
-
-
-
-
-        //Kulun lisääminen tietokantaa
-        //voi käyttää RecurExpenseDtO 
         [HttpPost("add-recurr-expense")]
         public IActionResult AddRecurringExpense([FromBody] RecurrExpenseDTO recurrExpenseDto)
         {
